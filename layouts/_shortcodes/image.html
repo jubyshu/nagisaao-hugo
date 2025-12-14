@@ -5,23 +5,22 @@
 {{ $captions := slice }}
 
 {{ if .IsNamedParams }}
-  {{ with .Get "urls" }}
-    {{ $images = split . "," }}
-  {{ else with .Get "url" }}
-    {{ $images = slice . }}
+  {{ if .Get "urls" }}
+    {{ $images = split (.Get "urls") "," }}
+  {{ else if .Get "url" }}
+    {{ $images = slice (.Get "url") }}
   {{ end }}
-  {{ with .Get "captions" }}
-    {{ $captions = split . "," }}
+  {{ if .Get "captions" }}
+    {{ $captions = split (.Get "captions") "," }}
   {{ end }}
 {{ else }}
-  {{ with .Get 0 }}
-    {{ $images = slice . }}
+  {{ if .Get 0 }}
+    {{ $images = slice (.Get 0) }}
   {{ end }}
 {{ end }}
 
 {{ range $i, $img := $images }}
   {{ $url := trim $img " " }}
-
   {{ $cap := "" }}
   {{ if lt $i (len $captions) }}
     {{ $cap = trim (index $captions $i) " " }}
