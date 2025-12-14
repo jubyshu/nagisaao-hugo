@@ -18,13 +18,13 @@
     {{ $y }}
     <span class="post_count">({{ len (where $sorted "year" $y) }})</span>
   </h3>
-  <div class="collcontent ">
+  <div class="collcontent" hidden>
     <ol>
-      {{ range where $sorted "year" $y }}
-        <li>
-          {{ .title }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}
-        </li>
-      {{ end }}
+    {{ range where $sorted "year" $y }}
+      <li>
+        {{ .title }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}
+      </li>
+    {{ end }}
     </ol>
   </div>
   {{ if lt (add $i 1) (len $years) }}<hr/>{{ end }}

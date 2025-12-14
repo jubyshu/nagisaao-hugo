@@ -13,7 +13,7 @@ description: I started my blog on WordPress in 2015 and migrated it to Jekyll in
 
 #### Blog
 
-I started my blog on WordPress in 2015 and migrated it to Jekyll in 2018. The source code is hosted on GitHub and deployed via Netlify.
+I started my blog on WordPress in 2015, migrated to Jekyll in 2018, and finally switched to Hugo in 2025. The source code is hosted on GitHub and deployed via Netlify.
 
 "渚碧" is a transliteration of "Juby", which is an abbreviation of my name. It can be interpreted as "青い渚" in Japanese, meaning "azure shore".
 

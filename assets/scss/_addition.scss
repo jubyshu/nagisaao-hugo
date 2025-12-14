@@ -183,9 +183,16 @@
 // ------------------------------------------------------------
 // Collapsible & Figures
 // ------------------------------------------------------------
-.collcontent {
-  display: none;
-  transition: max-height 0.3s ease;
+.collcontent, #bookshelf-content {
+  overflow: hidden;
+  transition: max-height .35s ease, opacity .25s ease;
+  max-height: 0;
+  opacity: 0;
+
+  &.is-open {
+    max-height: 3000px;
+    opacity: 1;
+  }
 }
 
 .collapsible {
@@ -204,16 +211,6 @@
 // ------------------------------------------------------------
 // Book List
 // ------------------------------------------------------------
-#bookshelf-content {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height .35s ease;
-
-  &.expanded {
-    max-height: 10000px;
-  }
-}
-
 .book-show {
   overflow: hidden;
 }

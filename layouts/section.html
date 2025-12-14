@@ -24,21 +24,17 @@
       {{ .Key }}
       <span class="post_count"> ({{ len .Pages }})</span>
     </h3>
-    <ul class="collcontent">
+    <div class="collcontent" hidden>
+      <ul>
       {{ range .Pages }}
         <li>
           {{ .Date.Format "01-02" }} &raquo;
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
       {{ end }}
-    </ul>
+      </ul>
+    </div>
     {{ end }}
-
-    <script>
-    document.querySelectorAll('.collapsible+ul').forEach(year => {
-      year.classList.add('collcontent');
-    });
-    </script>
   </section>
 </article>
 

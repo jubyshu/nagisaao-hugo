@@ -95,24 +95,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
   // 3. Block Collapse
   // ============================================================
-  const collapsibles = document.querySelectorAll('.collapsible');
-  
-  if (collapsibles.length > 0) {
-    const firstContent = collapsibles[0].nextElementSibling;
-    if (firstContent) {
-      firstContent.style.display = 'block';
+  document.querySelectorAll('.collapsible').forEach((title, index) => {
+    const content = title.nextElementSibling;
+    if (!content) return;
+
+    if (index === 0) {
+      content.hidden = false;
+      content.classList.add('is-open');
     }
 
-    collapsibles.forEach(coll => {
-      coll.addEventListener('click', function() {
-        const content = this.nextElementSibling;
-        if (content) {
-          const isVisible = content.style.display === 'block';
-          content.style.display = isVisible ? 'none' : 'block';
-        }
-      });
+    title.addEventListener('click', () => {
+      const isOpen = content.classList.contains('is-open');
+
+      content.hidden = isOpen;
+      content.classList.toggle('is-open');
     });
-  }
+  });
 
   // ============================================================
   // 4. Bookshelf
@@ -122,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (bookshelfTitle && bookshelfContent) {
     bookshelfTitle.addEventListener("click", () => {
-      bookshelfContent.classList.toggle("expanded");
+      bookshelfContent.classList.toggle("is-open");
     });
   }
 
