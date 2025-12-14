@@ -3,6 +3,7 @@
   publish = "public"
 
 [build.environment]
+  DART_SASS_VERSION = "1.93.2"
   HUGO_VERSION = "0.152.2"
   HUGO_EXTENDED = "true"
   GO_VERSION = "1.25.5"
