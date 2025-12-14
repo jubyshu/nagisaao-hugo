@@ -382,23 +382,6 @@ sup a {
 }
 
 // ------------------------------------------------------------
-// Media: YouTube
-// ------------------------------------------------------------
-.ytb-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9; 
-}
-
-.ytb-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-// ------------------------------------------------------------
 // Github Gist
 // ------------------------------------------------------------
 .gist {
@@ -406,11 +389,6 @@ sup a {
 
   th, td { border: none; }
   tbody tr:nth-child(2n) { background: none; }
-  
-  // .blob-wrapper,
-  // .highlight {
-  //   background: v.$code-bg-color !important;
-  // }
 }
 
 .gist-file .gist-data {
