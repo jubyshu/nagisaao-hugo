@@ -1,0 +1,11 @@
+<script type="text/javascript" src="https://{{ .Site.Params.cdn }}/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+  algoliasearchNetlify({
+    appId: '{{ .Site.Params.crawler.appId }}',
+    apiKey: '{{ .Site.Params.crawler.apiKey }}',
+    siteId: '{{ .Site.Params.crawler.siteId }}',
+    branch: 'master',
+    selector: 'div#search-searchbar',
+  });
+</script>
+<div id="search-searchbar"></div>

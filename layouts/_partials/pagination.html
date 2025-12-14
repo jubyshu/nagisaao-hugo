@@ -1,0 +1,14 @@
+<hr class="post-list__divider" />
+{{ if gt .Paginator.TotalPages 1 }}
+<nav class="pagination" role="navigation">
+  {{ with .Paginator.Prev }}
+  <a class="newer-posts pagination__newer btn" href="{{ .URL }}">&larr; 最近</a>
+  {{ end }}
+  <span class="pagination__page-number">
+    {{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}
+  </span>
+  {{ with .Paginator.Next }}
+  <a class="older-posts pagination__older btn" href="{{ .URL }}">更早 &rarr;</a>
+  {{ end }}
+</nav>
+{{ end }}

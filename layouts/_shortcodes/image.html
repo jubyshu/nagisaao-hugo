@@ -1,0 +1,40 @@
+{{ $imagePath := .Site.Params.cloudinary }}
+{{ $captionDefault := .Get "caption" | default "" }}
+
+{{ $images := slice }}
+{{ $captions := slice }}
+
+{{ if .IsNamedParams }}
+  {{ with .Get "urls" }}
+    {{ $images = split . "," }}
+  {{ else with .Get "url" }}
+    {{ $images = slice . }}
+  {{ end }}
+  {{ with .Get "captions" }}
+    {{ $captions = split . "," }}
+  {{ end }}
+{{ else }}
+  {{ with .Get 0 }}
+    {{ $images = slice . }}
+  {{ end }}
+{{ end }}
+
+{{ range $i, $img := $images }}
+  {{ $url := trim $img " " }}
+
+  {{ $cap := "" }}
+  {{ if lt $i (len $captions) }}
+    {{ $cap = trim (index $captions $i) " " }}
+  {{ else }}
+    {{ $cap = $captionDefault | default $url }}
+  {{ end }}
+
+  <figure class="post-figure">
+    <a href="{{ $imagePath }}/blog/posts/{{ $url }}" data-fancybox="images" data-caption="{{ $cap }}">
+      <img loading="lazy" class="post-img" src="{{ $imagePath }}/blog/posts/{{ $url }}" alt="{{ $cap }}" onerror="showAvifSign();">
+    </a>
+    <figcaption class="post-figcaption">
+      {{ $cap }}
+    </figcaption>
+  </figure>
+{{ end }}

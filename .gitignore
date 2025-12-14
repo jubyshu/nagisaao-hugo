@@ -1,0 +1,7 @@
+public
+.cache
+resources
+Thumbs.db
+Desktop.ini
+.DS_Store
+.hugo_build.lock

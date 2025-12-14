@@ -1,0 +1,31 @@
+{{ $books := .Site.Data.books }}
+{{ $sorted := sort $books "year" "desc" }}
+
+<h3>
+  读书 <span class="post_count">({{ len $books }})</span>
+</h3>
+<hr/>
+
+{{ $years := slice }}
+{{ range $sorted }}
+  {{ if not (in $years .year) }}
+    {{ $years = $years | append .year }}
+  {{ end }}
+{{ end }}
+
+{{ range $i, $y := $years }}
+  <h3 class="collapsible">
+    {{ $y }}
+    <span class="post_count">({{ len (where $sorted "year" $y) }})</span>
+  </h3>
+  <div class="collcontent ">
+    <ol>
+      {{ range where $sorted "year" $y }}
+        <li>
+          {{ .title }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}
+        </li>
+      {{ end }}
+    </ol>
+  </div>
+  {{ if lt (add $i 1) (len $years) }}<hr/>{{ end }}
+{{ end }}

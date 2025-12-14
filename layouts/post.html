@@ -1,0 +1,44 @@
+{{ define "main" }}
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ $published := .Date }}
+    {{ $updated := .Lastmod }}
+    <div class="post-meta">
+      <time datetime='{{ $published.Format "2006-01-02T15:04:05Z07:00" }}' itemprop="datePublished" class="post-meta__date">{{ $published.Format "2006-01-02" }}</time>
+      &#8226;
+      <span>{{ .WordCount }} words</span>
+      {{ if ne $published $updated }}
+      &#8226;
+      <time datetime='{{ $updated.Format "2006-01-02T15:04:05Z07:00" }}' itemprop="dateUpdated" class="post-meta__date">
+        {{ if eq ($published.Format "2006-01-02") ($updated.Format "2006-01-02") }}
+          upd.: {{ $updated.Format "15:04:05" }}
+        {{ else }}
+          upd.: {{ $updated.Format "2006-01-02" }}
+        {{ end }}
+      </time>
+      {{ end }}
+    </div>
+  </header>
+
+  <section class="post not_page">
+    {{ .Content }}
+    {{if .Params.toc}}
+      {{ .TableOfContents }}
+    {{end}}
+  </section>
+
+  <div class="post-tags">
+    <ul>
+      {{ range .Params.tags }}
+      <li><a href="/tags/{{ . }}">#{{ . }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+</article>
+
+{{ partial "new-old.html" . }}
+{{ partial "comments.html" . }}
+
+{{ end }}

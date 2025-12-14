@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <section class="post">
+    {{ $isTagPage := and (eq .Kind "taxonomy") (eq .Data.Singular "tag") }}
+    {{ if or $isTagPage (eq .Kind "home") }}
+    <h3 id="tag-index">标签</h3>
+    <hr/>
+    <ul>
+      {{ range $tag, $term := .Site.Taxonomies.tags }}
+      <li>
+        <a href="/tags/{{ $tag | urlize }}">{{ $tag }}<span class="tag-count">({{ len $term.Pages }})</span></a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+    
+    {{ $isCategPage := and (eq .Kind "taxonomy") (eq .Data.Singular "category") }}
+    {{ if or $isCategPage (eq .Kind "home") }}
+    <h3 id="tag-index">分类</h3>
+    <hr/>
+    <ul>
+      {{ range $categ, $term := .Site.Taxonomies.categories }}
+      <li>
+        <a href="/categories/{{ $categ | urlize }}" class="tag-link">{{ $categ }}<span class="tag-count">({{ len $term.Pages }})</span></a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}  
+  </section>
+</article>
+
+{{ end }}

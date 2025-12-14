@@ -1,0 +1,402 @@
+@use "variable" as v;
+
+// ------------------------------------------------------------
+// Pager (Prev/Next Navigation)
+// ------------------------------------------------------------
+.post-container {
+  margin-top: 20px;
+}
+
+.pager {
+  margin-top: 20px;
+
+  a {
+    width: 100%;
+    padding: 10px;
+    color: v.$meta-font-color;
+    display: block;
+
+    > span {
+      padding: 10px 0;
+      transition: color 0.3s;
+    }
+
+    &:hover,
+    &:focus {
+      > span {
+        color: v.$hover-color;
+      }
+    }
+  }
+}
+
+.next,
+.previous {
+  margin-top: 20px;
+}
+
+.next { float: right; }
+.previous { float: left; }
+
+// ------------------------------------------------------------
+// Post Content & Meta
+// ------------------------------------------------------------
+.post-comments {
+  border-top: 1px solid v.$border-color;
+  padding: 120px 0 0;
+}
+
+.post-meta {
+  margin: 0 0 1.8em 0;
+  color: v.$meta-font-color;
+  font-size: 0.9em;
+}
+
+.post {
+  img {
+    cursor: pointer;
+    max-width: 100%;
+    margin: 1em auto;
+    border-radius: 3px;
+    text-align: center;
+    display: block;
+  }
+
+  pre {
+    width: auto;
+    overflow: auto;
+  }
+
+  hr {
+    margin: 1em auto;
+    border-top: 1px solid v.$border-color;
+  }
+
+  &.not_page,
+  &-tags {
+    hr {
+      border-top: none;
+      text-align: center;
+
+      &::before {
+        content: "...";
+        display: inline-block;
+        font-size: 1.5em;
+        letter-spacing: 0.5em;
+        margin: 0.5em auto;
+        color: v.$sub-link-color;
+      }
+    }
+
+    a {
+      color: v.$sub-link-color;
+      border-bottom: 1px solid v.$sub-link-color;
+
+      &:hover {
+        color: v.$hover-color;
+      }
+    }
+
+    h3 {
+      padding-bottom: 5px;
+      margin-top: 1.5em;
+      border-bottom: 1px solid v.$border-color;
+    }
+
+    h3,
+    h4 {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// Panel Layout
+// ------------------------------------------------------------
+.panel-cover {
+  display: block;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 780px;
+  margin: auto;
+
+  @media all and (max-width: 780px) {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .panel-title {
+    margin: 20px 0 10px 0;
+    font-size: 1.8em;
+    letter-spacing: 3px;
+    color: #FFF;
+
+    @media all and (max-width: 1100px) {
+      font-size: 1.8em;
+    }
+
+    @media all and (max-width: 420px) {
+      margin-bottom: .1em;
+      font-size: 1.8em;
+    }
+  }
+
+  .panel-description {
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0 10px;
+
+    @media all and (max-width: 960px) {
+      display: block;
+      margin-top: 10px;
+    }
+  }
+
+  .cover-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    min-height: 40px;
+    width: 100%;
+    color: v.$sub-font-color;
+    margin: 10px auto;
+    padding: 5px 0;
+    border-top: 1px solid v.$border-color;
+    border-bottom: 1px solid v.$border-color;
+  }
+}
+
+.panel-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 180px;
+  background: v.$cover-image no-repeat center center;
+  background-size: cover;
+  // border-bottom: 1px solid v.$border-color;
+
+  @media all and (max-width: 960px) {
+    height: 180px;
+    position: relative;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 10;
+    padding: 0;
+    font-weight: 100;
+    text-align: center;
+    margin: 0 auto;
+    color: v.$title-color;
+
+    a {
+      color: v.$title-color;
+    }
+
+    @media all and (max-width: 960px) {
+      display: block;
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// Navigation
+// ------------------------------------------------------------
+nav {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
+  letter-spacing: 1px;
+
+  &__item {
+    display: inline-block;
+    position: relative;
+    line-height: 1em;
+    margin: 0;
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding: 8px;
+      font-size: 1em;
+      color: v.$sub-font-color;
+      text-shadow: none;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      background: v.$hover-color;
+      border-radius: 7px;
+
+      a {
+        color: #fff;
+      }
+    }
+  }
+
+  &--social {
+    margin-top: 0.5em;
+    gap: 5px;
+
+    a {
+      padding: 5px;
+      border: 0;
+
+      .label { display: none; }
+      .icon {
+        display: inline-block;
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &__item_social {
+    img:hover {
+      background: v.$sub-link-color;
+      border-radius: 50%;
+    }
+  }
+
+  @media all and (max-width: 420px) {
+    gap: 5px;
+
+    &__item a {
+      padding: 3px;
+      font-size: 0.95em;
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// Buttons & Pagination
+// ------------------------------------------------------------
+.btn {
+  margin: 0;
+  font-size: .8em;
+  color: v.$sub-font-color;
+
+  a {
+    display: block;
+    text-align: left;
+    margin: 0 10px;
+    font-size: .4em;
+    padding: 5px 0;
+    color: v.$sub-font-color;
+    border-bottom: 0.1px solid v.$border-color;
+    text-shadow: none;
+  }
+}
+
+.pagination {
+  display: block;
+  margin: 0 0 2em 0;
+  text-align: center;
+
+  &__page-number {
+    margin: 0;
+    font-size: .8em;
+    color: v.$sub-font-color;
+  }
+
+  &__newer { margin-right: 1em; }
+  &__older { margin-left: 1em; }
+}
+
+// ------------------------------------------------------------
+// Icons
+// ------------------------------------------------------------
+i {
+  font-family: 'entypo';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.social {
+  font-size: 22px;
+}
+
+.icon-social {
+  font-family: 'entypo-social';
+  font-size: 22px;
+  display: block;
+  position: relative;
+}
+
+// ------------------------------------------------------------
+// Post List (Archive/Index)
+// ------------------------------------------------------------
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: left;
+  display: inline-block;
+
+  &:first-child {
+    margin-top: 20px;
+  }
+
+  li {
+    margin: 0 0 2.2em 0;
+  }
+
+  &__title {
+    margin-top: 5px;
+    margin-bottom: .2em;
+    font-size: 1.4em;
+    line-height: 1.3em;
+
+    a {
+      color: v.$title-color;
+      padding-top: 5px;
+
+      &:hover {
+        color: v.$hover-color;
+      }
+    }
+  }
+
+  &__meta {
+    margin: 0;
+    display: inline-block;
+  }
+
+  &__date {
+    background-size: 100% 100%;
+    color: v.$meta-font-color;
+    float: left;
+    font-size: 0.8em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &_divider {
+    margin: 10px 0;
+    border-top: 1px solid v.$border-color;
+  }
+}
+
+// ------------------------------------------------------------
+// Global Helpers
+// ------------------------------------------------------------
+*:focus {
+  outline: transparent;
+}

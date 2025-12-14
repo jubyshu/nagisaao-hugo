@@ -1,0 +1,128 @@
+title = "渚碧"
+baseURL = "https://jubeny.com"
+languageCode = "zh-cn"
+timeZone = "Asia/Shanghai"
+hasCJKLanguage = true
+pygmentsCodeFences = false
+
+[params]
+author = "Juby"
+birthday = "2015/01/03 23:15:15"
+description = "我欲种菜 亦植蔷薇"
+keywords = ["渚碧博客", "Juby Blog", "读书·生活·运动", "自由民主"]
+cdn = "fastly.jsdelivr.net"
+card = "https://bing.ee123.net/img/"
+cloudinary = "https://res.cloudinary.com/dajdhi0qn/image/upload/f_auto"
+google_site_verification = "lTL7MkDxY16gNmRWyqoZYflJgECNQkxPjyFoYgM3z2M"
+
+  [params.social]
+  twitter = "roadfar"
+  instagram = "aggwr64"
+  youtube = "lowah1964"
+
+  [params.disqus]
+  shortname = "juby"
+  sitename = "AoiNagisa"
+  apikey = "dXc0vOCZ1LAX0c9y3FB0fpC5KA7L56QEFDYRXaUeAyvCzowv8hKQRzpsG6ITpxSL"
+  admin = "mikihiro"
+  mod = "Mod"
+  nocomment = "Hello? Is there anybody in there?"
+
+  [params.follow]
+  feed_id = 41343619752158229
+  user_id = 67699324184418304
+
+  [params.crawler]
+  appId = "WP0585HOTT"
+  apiKey = "8a9789175622da4893d608265bf1d24d"
+  siteId = "2892d0db-3067-4a2f-907d-d8e43bedb5c1"
+
+[permalinks]
+posts = "/:year/:month/:slug/"
+
+[pagination]
+pagerSize = 10
+
+[taxonomies]
+category = 'categories'
+tag = 'tags'
+
+[outputs]
+home = ["html", "rss"]
+section = ["html"]
+taxonomy = ['html']
+term = ['html']
+
+[outputFormats.RSS]
+baseName = "feed"
+
+[[menus.main]]
+name = "首页"
+url = "/"
+weight = 10
+
+[[menus.main]]
+name = "往事"
+url = "/archive/"
+weight = 20
+
+[[menus.main]]
+name = "读书"
+url = "/book/"
+weight = 30
+
+[[menus.main]]
+name = "留言"
+url = "/guestbook/"
+weight = 40
+
+[[menus.main]]
+name = "关于"
+url = "/about/"
+weight = 50
+
+[[menus.categ]]
+name = "J"
+pre = "日志"
+url = "/journal/"
+weight = 10
+
+[[menus.categ]]
+name = "E"
+pre = "随笔"
+url = "/essay/"
+weight = 20
+
+[[menus.categ]]
+name = "R"
+pre = "评论"
+url = "/review/"
+weight = 30
+
+[[menus.categ]]
+name = "P"
+pre = "诗歌"
+url = "/poetry/"
+weight = 40
+
+[[menus.categ]]
+name = "S"
+pre = "故事"
+url = "/story/"
+weight = 50
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 4
+
+[markup.goldmark]
+  [markup.goldmark.renderer]
+  unsafe = true
+  [markup.goldmark.extensions]        
+  linkify = true
+  strikethrough = true
+  taskList = true
+  typographer = true
+  footnote = true
+  attribute = true
+  definitionList = true
