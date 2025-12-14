@@ -5,6 +5,6 @@ permalink: /book/
 description: A reader lives a thousand lives before he dies.
 ---
 
-{{< library >}}
+{{< bookshelf >}}
 
 {{< books >}}
