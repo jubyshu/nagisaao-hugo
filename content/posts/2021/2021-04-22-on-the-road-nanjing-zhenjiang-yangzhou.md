@@ -16,7 +16,7 @@ slug: on-the-road-nanjing-zhenjiang-yangzhou
 
 有时在路上也会寂寞，便自己和自己说话、念诗、唱歌，话不知说什么，诗念到一半就忘了，歌也跑调。但不必尴尬，倾听我的只有风、路边的草木和呼啸而过的汽车。
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1mHTHszyBUV7-d3onPxnAlXovH8kqigme" width="100%" height="400"></iframe>
+{{< iframe src="https://www.google.com/maps/d/embed?mid=1mHTHszyBUV7-d3onPxnAlXovH8kqigme" >}}
 
 本周按计划进行了宁镇扬之行，首先从南京骑到镇江金山风景区，游玩之后再骑到扬州瘦西湖风景区，然后在扬州过夜，第二天骑回南京。
 

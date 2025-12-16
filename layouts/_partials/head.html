@@ -1,6 +1,16 @@
 <head>
   <meta charset="utf-8">
-  <script>!function(){try{let e=null;try{e=localStorage.getItem("theme")}catch(t){}let n=window.matchMedia("(prefers-color-scheme: dark)").matches,a="dark"===e||"light"===e?e:n?"dark":"light",r=document.createElement("style");r.id="no-theme-transition",r.innerHTML="* { transition: none !important; }",document.head.appendChild(r),document.documentElement.setAttribute("data-theme",a),requestAnimationFrame(()=>{requestAnimationFrame(()=>{let e=document.getElementById("no-theme-transition");e&&e.remove()})})}catch(i){}}();</script>
+  <script>
+    !function(){
+      try{
+        let e=null;
+        try{e=localStorage.getItem("theme")}catch(t){}
+        let n=matchMedia("(prefers-color-scheme: dark)").matches,
+            a=e==="dark"||e==="light"?e:n?"dark":"light";
+        document.documentElement.setAttribute("data-theme",a);
+      }catch(e){}
+    }();
+  </script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes">
   <title>

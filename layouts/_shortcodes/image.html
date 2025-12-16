@@ -17,6 +17,9 @@
   {{ if .Get 0 }}
     {{ $images = slice (.Get 0) }}
   {{ end }}
+  {{ if .Get 1 }}
+    {{ $captions = slice (.Get 1) }}
+  {{ end }}
 {{ end }}
 
 {{ range $i, $img := $images }}
@@ -27,13 +30,10 @@
   {{ else }}
     {{ $cap = $captionDefault | default $url }}
   {{ end }}
-
   <figure class="post-figure">
     <a href="{{ $imagePath }}/blog/posts/{{ $url }}" data-fancybox="images" data-caption="{{ $cap }}">
       <img loading="lazy" class="post-img" src="{{ $imagePath }}/blog/posts/{{ $url }}" alt="{{ $cap }}" onerror="showAvifSign();">
     </a>
-    <figcaption class="post-figcaption">
-      {{ $cap }}
-    </figcaption>
+    <figcaption class="post-figcaption">{{ $cap }}</figcaption>
   </figure>
 {{ end }}

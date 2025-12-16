@@ -11,11 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("theme-toggle");
   const KEY = "theme";
 
-  function safeLoad() {
-    try { return localStorage.getItem(KEY); }
-    catch (e) { return null; }
-  }
-
   function safeSave(t) {
     try { localStorage.setItem(KEY, t); }
     catch (e) {}
@@ -23,18 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function apply(t) {
     document.documentElement.setAttribute("data-theme", t);
-  }
-
-  function init() {
-    let stored = safeLoad();
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    const theme =
-      (stored === "dark" || stored === "light")
-        ? stored
-        : prefersDark ? "dark" : "light";
-
-    apply(theme);
   }
 
   if (btn) {
@@ -48,12 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const mq = window.matchMedia("(prefers-color-scheme: dark)");
   mq.addEventListener("change", (e) => {
-    if (!safeLoad()) {
+    if (!localStorage.getItem(KEY)) {
       apply(e.matches ? "dark" : "light");
     }
   });
-
-  init();
 
   // ============================================================
   // 2. Back to Top
