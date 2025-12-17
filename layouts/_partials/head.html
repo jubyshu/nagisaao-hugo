@@ -39,6 +39,22 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/images/favicon.ico" type="image/x-icon">
+  <style>
+    :root[data-theme="light"] {
+      --color-body-bg: #efefef;
+      --color-page-bg: #fcfcfc;
+    }
+    :root[data-theme="dark"] {
+      --color-body-bg: #0d1117;
+      --color-page-bg: #161b22;
+    }
+    body {
+      background-color: var(--color-body-bg);
+    }
+    .container {
+      background-color: v.$page-bg-color;
+    }
+  </style>
   {{ if .Params.image }}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/@fancyapps/ui@4.0/dist/fancybox.css">
   {{ end }}

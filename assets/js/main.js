@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
   setTimeout(() => {
     document.documentElement.classList.remove('no-transition');
-  }, 0);
-  
+  }, 5);
+
   const btn = document.getElementById("theme-toggle");
   const KEY = "theme";
 
