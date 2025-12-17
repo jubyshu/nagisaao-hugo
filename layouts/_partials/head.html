@@ -10,17 +10,6 @@
     {{ end }}
   </title>
   <script>!function(){try{let t=null;try{t=localStorage.getItem("theme")}catch(t){}var e=matchMedia("(prefers-color-scheme: dark)").matches,a="dark"===t||"light"===t?t:e?"dark":"light";document.documentElement.setAttribute("data-theme",a)}catch(t){}}();</script>
-  <style>
-    :root[data-theme=light] {
-      --color-body-bg:#efefef;
-    }
-    :root[data-theme=dark] {
-      --color-body-bg:#0d1117;
-    }
-    html, body {
-      background-color: var(--color-body-bg) !important;
-    }
-  </style>
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="keywords" content='{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ else }}{{ delimit .Site.Params.keywords ", " }}{{ end }}'>
   {{ $desc := "" }}
