@@ -4,16 +4,14 @@
   <script>
     function loadDisqus() {
       const dsqjs = new DisqusJS({
-        shortname: '{{ .Site.Params.disqus.shortname }}',
-        siteName: '{{ .Site.Params.disqus.sitename }}',
+        shortname: "{{ .Site.Params.disqus.shortname }}",
+        siteName: "{{ .Site.Params.disqus.sitename }}",
         identifier: window.location.href.substring(18),
         url: window.location.href,
-        // title: '',
-        // api: '',
-        apikey: '{{ .Site.Params.disqus.apikey }}',
-        admin: '{{ .Site.Params.disqus.admin }}',
-        adminLabel: '{{ .Site.Params.disqus.mod }}',
-        nocomment: '{{ .Site.Params.disqus.nocomment }}'
+        apikey: "{{ .Site.Params.disqus.apikey }}",
+        admin: "{{ .Site.Params.disqus.admin }}",
+        adminLabel: "{{ .Site.Params.disqus.mod }}",
+        nocomment: "{{ .Site.Params.disqus.nocomment }}"
       });
     }
 
@@ -31,7 +29,7 @@
             disqus_observer.disconnect();
           }
         }, { threshold: [0] });
-        disqus_observer.observe(document.getElementById('disqus_thread'));
+        disqus_observer.observe(document.getElementById("disqus_thread"));
       } else {
         loadDisqus();
       }

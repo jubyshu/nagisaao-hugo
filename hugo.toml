@@ -4,6 +4,7 @@ languageCode = "zh-cn"
 timeZone = "Asia/Shanghai"
 hasCJKLanguage = true
 pygmentsCodeFences = false
+copyright = "© Juby"
 
 [params]
 author = "Juby"
@@ -116,8 +117,6 @@ startLevel = 2
 endLevel = 4
 
 [markup.goldmark]
-  [markup.goldmark.renderer]
-  unsafe = true
   [markup.goldmark.extensions]        
   linkify = true
   strikethrough = true
