@@ -8,10 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
   // 1. Light & Dark Theme
   // ============================================================
-  setTimeout(() => {
-    document.documentElement.classList.remove('no-transition');
-  }, 5);
-
   const btn = document.getElementById("theme-toggle");
   const KEY = "theme";
 
