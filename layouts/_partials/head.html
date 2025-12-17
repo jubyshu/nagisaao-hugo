@@ -13,17 +13,12 @@
   <style>
     :root[data-theme=light] {
       --color-body-bg:#efefef;
-      --color-page-bg:#fcfcfc;
     }
     :root[data-theme=dark] {
       --color-body-bg:#0d1117;
-      --color-page-bg:#161b22;
     }
     html, body {
-      background-color: var(--color-body-bg);
-    }
-    .container {
-      background-color: var(--color-page-bg);
+      background-color: var(--color-body-bg) !important;
     }
   </style>
   <meta name="author" content="{{ .Site.Params.author }}">
