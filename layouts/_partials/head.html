@@ -1,16 +1,5 @@
 <head>
   <meta charset="utf-8">
-  <script>
-    !function(){
-      try{
-        let e=null;
-        try{e=localStorage.getItem("theme")}catch(t){}
-        let n=matchMedia("(prefers-color-scheme: dark)").matches,
-            a=e==="dark"||e==="light"?e:n?"dark":"light";
-        document.documentElement.setAttribute("data-theme",a);
-      }catch(e){}
-    }();
-  </script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes">
   <title>
@@ -20,6 +9,16 @@
       {{ .Title }} - {{ .Site.Title }}
     {{ end }}
   </title>
+  <script>
+    (function() {
+      let storageTheme = null;
+      try { storageTheme = localStorage.getItem("theme"); } catch (e) {}
+      let systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      let targetTheme = (storageTheme === "dark" || storageTheme === "light") ? storageTheme : systemTheme;
+      document.documentElement.setAttribute("data-theme", targetTheme);
+      document.documentElement.classList.add('no-transition');
+    })();
+  </script>
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="keywords" content='{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ else }}{{ delimit .Site.Params.keywords ", " }}{{ end }}'>
   {{ $desc := "" }}
