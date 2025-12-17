@@ -9,18 +9,18 @@
 
   <div class="category">
     <ul>
-      {{ range .Site.Menus.categ }}
+      {{ range .Site.Menus.categ -}}
       <li>
         <a href="{{ $.Permalink }}/categories{{ .URL }}" title="{{ .Pre }}">{{ .Name }}</a>
       </li>
-      {{ end }}
+      {{ end -}}
     </ul>
   </div>
 </div>
 
 <div class="main-post-list">
   <ol class="post-list">
-    {{ range .Paginator.Pages }}
+    {{ range .Paginator.Pages -}}
     <li>
       <h2 class="post-list__title post-title">
         <a href="{{ .RelPermalink }}" title="访问 {{ .Title }}">{{ .Title }}</a>
@@ -33,7 +33,7 @@
       <p class="excerpt">{{ .Summary | plainify | truncate 100 }}...</p>
       <hr class="post-list_divider" />
     </li>
-    {{ end }}
+    {{ end -}}
   </ol>
   {{ partial "pagination.html" . }}
 </div>

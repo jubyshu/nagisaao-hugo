@@ -3,23 +3,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes">
   <title>
-    {{ if .IsHome }}
-      {{ .Site.Title }} - {{ .Site.Params.description }}
-    {{ else }}
-      {{ .Title }} - {{ .Site.Title }}
-    {{ end }}
+    {{- if .IsHome -}}
+      {{- .Site.Title -}} - {{- .Site.Params.description -}}
+    {{- else -}}
+      {{- .Title -}} - {{- .Site.Title -}}
+    {{- end -}}
   </title>
   <script>!function(){try{let t=null;try{t=localStorage.getItem("theme")}catch(t){}var e=matchMedia("(prefers-color-scheme: dark)").matches,a="dark"===t||"light"===t?t:e?"dark":"light";document.documentElement.setAttribute("data-theme",a)}catch(t){}}();</script>
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="keywords" content='{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ else }}{{ delimit .Site.Params.keywords ", " }}{{ end }}'>
-  {{ $desc := "" }}
-  {{if .IsHome}}
-    {{ $desc = .Site.Params.description }}
-  {{ else if .Params.description }}
-    {{ $desc = .Params.description }}
-  {{ else }}
-    {{ $desc = .Summary | plainify | truncate 120 }}
-  {{ end }}
+  {{- $desc := "" -}}
+  {{- if .IsHome -}}
+    {{- $desc = .Site.Params.description -}}
+  {{- else if .Params.description -}}
+    {{- $desc = .Params.description -}}
+  {{- else -}}
+    {{- $desc = .Summary | plainify | truncate 120 -}}
+  {{- end -}}
   <meta name="description" content="{{ $desc }}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@{{ .Site.Params.social.twitter }}">
@@ -30,14 +30,14 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/images/favicon.ico" type="image/x-icon">
-  {{ if .Params.image }}
+  {{- if .Params.image -}}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/@fancyapps/ui@4.0/dist/fancybox.css">
-  {{ end }}
-  {{ if eq .Title "搜索" }}
+  {{- end -}}
+  {{- if eq .Title "搜索" -}}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css">
-  {{ end }}
+  {{- end -}}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/disqusjs@1.3/dist/disqusjs.css">
-  {{ $css := resources.Get "scss/main.scss" | css.Sass (dict "targetPath" "css/main.css" "outputStyle" "compressed" "transpiler" "dartsass") }}
+  {{- $css := resources.Get "scss/main.scss" | css.Sass (dict "targetPath" "css/main.css" "outputStyle" "compressed" "transpiler" "dartsass") -}}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}feed.xml">

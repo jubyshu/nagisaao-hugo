@@ -42,7 +42,7 @@ google_site_verification = "lTL7MkDxY16gNmRWyqoZYflJgECNQkxPjyFoYgM3z2M"
 posts = "/:year/:month/:slug/"
 
 [pagination]
-pagerSize = 12
+pagerSize = 10
 
 [taxonomies]
 category = 'categories'

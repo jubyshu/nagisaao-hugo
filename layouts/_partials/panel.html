@@ -15,16 +15,14 @@
   <div class="panel-main">
     <div class="panel-main__inner">
       <h1 class="panel-title"><a href="/" title="前往 {{ .Site.Title }} 的主页">{{ .Site.Title }}</a></h1>
-      <p class="panel-description">
-        < {{ .Site.Params.description }} >
-      </p>
+      <p class="panel-description">< {{ .Site.Params.description }} ></p>
     </div>
   </div>
   <nav class="cover-navigation">
     <ul class="navigation">
-      {{ range .Site.Menus.main }}
+      {{ range .Site.Menus.main -}}
       <li class="navigation__item"><a rel="nofollow" href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
-      {{ end }}
+      {{ end -}}
     </ul>
   </nav>
 </header>
