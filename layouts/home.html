@@ -11,7 +11,7 @@
     <ul>
       {{ range .Site.Menus.categ -}}
       <li>
-        <a href="{{ $.Permalink }}/categories{{ .URL }}" title="{{ .Pre }}">{{ .Name }}</a>
+        <a href="{{ $.Permalink }}categories{{ .URL }}" title="{{ .Pre }}">{{ .Name }}</a>
       </li>
       {{ end -}}
     </ul>

@@ -64,7 +64,7 @@ weight = 10
 
 [[menus.main]]
 name = "往事"
-url = "/archive/"
+url = "/posts/"
 weight = 20
 
 [[menus.main]]
