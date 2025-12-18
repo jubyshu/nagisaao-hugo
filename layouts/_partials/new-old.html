@@ -1,13 +1,17 @@
 <section>
   <div class="pager">
-    {{ with .PrevInSection }}
+    {{ $pages := where site.RegularPages "Type" "posts" }}
+    {{ $prev := .Prev $pages }}
+    {{ $next := .Next $pages }}
+
+    {{ with $prev }}
     <div class="previous">
       <a href="{{ .RelPermalink }}" data-toggle="tooltip" data-placement="top" title="{{ .Title }}">
         << <span>{{ .Title }}</span>
       </a>
     </div>
     {{ end }}
-    {{ with .NextInSection }}
+    {{ with $next }}
     <div class="next">
       <a href="{{ .RelPermalink }}" data-toggle="tooltip" data-placement="top" title="{{ .Title }}">
         <span>{{ .Title }}</span> >>
