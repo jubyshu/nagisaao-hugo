@@ -41,9 +41,6 @@ google_site_verification = "lTL7MkDxY16gNmRWyqoZYflJgECNQkxPjyFoYgM3z2M"
 [permalinks]
 posts = "/:year/:month/:slug/"
 
-[pagination]
-pagerSize = 10
-
 [taxonomies]
 category = 'categories'
 tag = 'tags'

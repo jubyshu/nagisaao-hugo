@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{- define "main" -}}
 
 <article class="post-container post-container--single">
   <section class="post">
@@ -31,15 +31,15 @@
     {{- $years := .CurrentSection.Parent.Sections.ByTitle.Reverse -}}
     {{ if gt (len $years) 1 -}}
     <h3>More</h3>
-    <ul class="archive-years">
-    {{ range $years }}
-      {{ if ne .RelPermalink $.RelPermalink }}
+    <ul class="archive-years more">
+    {{ range $years -}}
+      {{ if ne .RelPermalink $.RelPermalink -}}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-      {{ end }}
-    {{ end }}
+      {{ end -}}
+    {{ end -}}
     </ul>
-    {{ end }}
+    {{ end -}}
   </section>
 </article>
 
-{{ end }}
+{{- end -}}

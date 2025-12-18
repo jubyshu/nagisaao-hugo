@@ -18,16 +18,14 @@
   cursor: pointer;
   transition: background .15s ease, transform .15s ease;
 
-  @media all and (max-width: 600px) {
-    .theme-toggle {
-      top: 10px;
-      right: 10px;
-      width: 30px;
-      height: 30px;
-      padding: 0;
-    }
+  @media (max-width: 600px) {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
 
-    .theme-toggle svg {
+    svg {
       width: 12px;
       height: 12px;
     }
@@ -171,7 +169,7 @@
     }
   }
 
-  @media all and (max-width: 600px) {
+  @media (max-width: 600px) {
     .aa-Autocomplete button {
       background: #21262d;
       caret-color: #58a6ff;
@@ -206,6 +204,16 @@
   margin-bottom: 1em;
   font-size: 0.9em;
   text-align: center;
+}
+
+.archive-years.more {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(3.5em, 1fr));
+  gap: 0.5rem 1rem;
+  justify-content: center;
+  padding: 0;
+  margin: 1em;
+  list-style: none;
 }
 
 // ------------------------------------------------------------

@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{- define "main" -}}
 
 <div class="index-meta">
   <div class="search-icon">
@@ -18,9 +18,11 @@
   </div>
 </div>
 
+{{- $pages := where site.RegularPages "Type" "posts" -}}
+{{- $paginator := .Paginate $pages 10 -}}
 <div class="main-post-list">
   <ol class="post-list">
-    {{ range .Paginator.Pages -}}
+    {{ range $paginator.Pages -}}
     <li>
       <h2 class="post-list__title post-title">
         <a href="{{ .RelPermalink }}" title="访问 {{ .Title }}">{{ .Title }}</a>
@@ -38,4 +40,4 @@
   {{ partial "pagination.html" . }}
 </div>
 
-{{ end }}
+{{- end -}}
