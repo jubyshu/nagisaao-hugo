@@ -1,4 +1,5 @@
 ---
 layout: list
-title: 2018
+title: "Posts 2018"
+year: 2018
 ---

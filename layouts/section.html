@@ -17,7 +17,7 @@
 
     {{- $years := .Sections.ByTitle.Reverse }}
     {{- with index $years 0 }}
-    <h3>{{ .Title }}</h3>
+    <h3>{{ .Params.year }}</h3>
     <ul>
       <li>文章: <span class="post_num">{{ len .Pages }}</span> 篇</li>
       {{- $totalWords := 0 }}
@@ -39,7 +39,7 @@
     <h3>More</h3>
     <ul class="archive-years more">
     {{- range $otherYears }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      <li><a href="{{ .RelPermalink }}">{{ .Params.year }}</a></li>
     {{- end }}
     </ul>
     {{- end }}
