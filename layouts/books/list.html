@@ -1,0 +1,34 @@
+{{- define "main" -}}
+
+<article class="post-container post-container--single">
+  <section class="post">
+    <h3>读书</h3>
+    <hr/>
+    {{- $books := .Site.Data.books }}
+    {{- $year := string .Params.year }}
+    {{- $booksOfYear := where $books "year" $year }}
+    <h3>{{ $year }}</h3>
+    <ul>
+      <li>已读: <span class="post_num">{{ len $booksOfYear }}</span> 本</li>
+    </ul>
+
+    <ol class="book-list">
+      {{- range $booksOfYear }}
+      <li>{{ .title }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}</li>
+      {{- end }}
+    </ol>
+    <hr/>
+
+    {{- $years := .CurrentSection.Parent.Sections.ByTitle.Reverse }}
+    <h3>More</h3>
+    <ul class="archive-years more">
+    {{- range $years }}
+      {{- if ne .RelPermalink $.RelPermalink }}
+      <li><a href="{{ .RelPermalink }}">{{ .Params.year }}</a></li>
+      {{- end }}
+    {{- end }}
+    </ul>
+  </section>
+</article>
+
+{{- end -}}

@@ -1,8 +1,6 @@
 @use "variable" as v;
 
-// ------------------------------------------------------------
 // Theme Switch Button
-// ------------------------------------------------------------
 .theme-toggle {
   position: absolute;
   top: 15px;
@@ -67,9 +65,7 @@
   transform: rotate(0deg) scale(1);
 }
 
-// ------------------------------------------------------------
-// UI Components: Back to Top
-// ------------------------------------------------------------
+// Back to Top Button
 #back-top {
   a {
     position: fixed;
@@ -97,9 +93,7 @@
   margin-top: 2px;
 }
 
-// ------------------------------------------------------------
-// Post Metadata & Archive
-// ------------------------------------------------------------
+// Post & Books Count
 .post_count {
   color: v.$sub-font-color;
   font-size: 0.8em;
@@ -110,6 +104,23 @@
   color: v.$sub-link-color;
 }
 
+// Archive Years
+.archive-years.more, .taxonomy-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 1em;
+  list-style: none;
+
+  a {
+    white-space: nowrap;
+  }
+}
+
+// Category Menu & Search Page
 .index-meta {
   margin-top: -30px;
   margin-bottom: 20px;
@@ -178,10 +189,18 @@
   }
 }
 
-// ------------------------------------------------------------
-// Collapsible & Figures
-// ------------------------------------------------------------
-.collcontent, #bookshelf-content {
+// Post Figure
+.post-figcaption {
+  position: relative;
+  display: none;
+  color: v.$sub-link-color;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+// Bookshelf Collapsible
+#bookshelf-content {
   overflow: hidden;
   transition: max-height .35s ease, opacity .25s ease;
   max-height: 0;
@@ -193,37 +212,7 @@
   }
 }
 
-.collapsible {
-  cursor: pointer;
-}
-
-.post-figcaption {
-  position: relative;
-  display: none;
-  color: v.$sub-link-color;
-  margin-bottom: 1em;
-  font-size: 0.9em;
-  text-align: center;
-}
-
-.archive-years.more, .taxonomy-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 1em;
-  list-style: none;
-
-  a {
-    white-space: nowrap;
-  }
-}
-
-// ------------------------------------------------------------
-// Book List
-// ------------------------------------------------------------
+// Bookshelf List
 .book-show {
   overflow: hidden;
 }
@@ -251,9 +240,7 @@ ul.book-list {
   }
 }
 
-// ------------------------------------------------------------
 // DisqusJS
-// ------------------------------------------------------------
 #dsqjs {
   margin-bottom: 20px;
 
@@ -302,9 +289,7 @@ ul.book-list {
   }
 }
 
-// ------------------------------------------------------------
 // Footnotes
-// ------------------------------------------------------------
 sup a {
   font-size: 0.7em;
   line-height: 0;
@@ -348,20 +333,19 @@ sup a {
   }
 }
 
-// ------------------------------------------------------------
-// Table of Contents (TOC)
-// ------------------------------------------------------------
-.post-toc {
+// Table of Contents 
+#TableOfContents {
   visibility: hidden;
   position: fixed;
   display: block;
   right: 50px;
   top: 170px;
-  padding: 5px;
   width: 210px;
   max-width: 210px;
   background: v.$toc-bg-color;
   border-radius: 3px;
+  padding: 5px;
+  z-index: 100;
 
   &::before {
     display: block;
@@ -370,63 +354,53 @@ sup a {
     font-size: 1.1em;
   }
 
-  ol,
-  ul {
-    margin-left: 1em;
-    list-style-type: none;
-  }
-
-  li {
-    margin: auto 5px;
-    list-style-type: none;
-
-    a {
-      color: v.$sub-font-color;
-      font-size: 0.9em;
-      display: inline-block;
-      border-bottom: hidden !important;
-      
-      &.active,
-      &:hover {
-        color: v.$hover-color;
-      }
-    }
-  }
-}
-
-// ------------------------------------------------------------
-// Github Gist
-// ------------------------------------------------------------
-.gist {
-  max-width: 720px;
-
-  th, td { border: none; }
-  tbody tr:nth-child(2n) { background: none; }
-}
-
-.gist-file .gist-data {
-  max-height: 360px;
-}
-
-.post-tags {
-  font-size: 0.85em;
-  margin-top: 2em;
-
   ul {
     margin: 0;
+    list-style-type: none;
     padding: 0;
+    > li > ul {
+       margin-left: 0;
 
-    li {
-      display: inline;
-      list-style: none;
-      margin-right: 1em;
+       li {
+        margin: auto 5px;
+        list-style-type: none;
+
+        a {
+          color: v.$sub-link-color;
+          font-size: 0.9em;
+          display: inline-block;
+          text-decoration: none;
+          border-bottom: hidden !important;
+          
+          &.active,
+          &:hover {
+            color: v.$hover-color;
+            font-weight: bold;
+          }
+        }
+      }
     }
-  }
+  } 
 }
 
-// ------------------------------------------------------------
+// Post Tags
+.post-tags {
+    font-size: .85em;
+    margin-top: 2em;
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline;
+        list-style: none;
+        margin-right: 1em;
+      }
+    }
+}
+
 // Text Fold (Details & Summary)
-// ------------------------------------------------------------
 details {
   p {
     font-family: v.$quote-font;

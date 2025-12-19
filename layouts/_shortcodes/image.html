@@ -1,39 +1,39 @@
-{{ $imagePath := .Site.Params.cloudinary }}
-{{ $captionDefault := .Get "caption" | default "" }}
+{{- $imagePath := .Site.Params.cloudinary }}
+{{- $captionDefault := .Get "caption" | default "" }}
 
-{{ $images := slice }}
-{{ $captions := slice }}
+{{- $images := slice }}
+{{- $captions := slice }}
 
-{{ if .IsNamedParams }}
-  {{ if .Get "urls" }}
-    {{ $images = split (.Get "urls") "," }}
-  {{ else if .Get "url" }}
-    {{ $images = slice (.Get "url") }}
-  {{ end }}
-  {{ if .Get "captions" }}
-    {{ $captions = split (.Get "captions") "," }}
-  {{ end }}
-{{ else }}
-  {{ if .Get 0 }}
-    {{ $images = slice (.Get 0) }}
-  {{ end }}
-  {{ if .Get 1 }}
-    {{ $captions = slice (.Get 1) }}
-  {{ end }}
-{{ end }}
+{{- if .IsNamedParams }}
+  {{- if .Get "urls" }}
+    {{- $images = split (.Get "urls") "," }}
+  {{- else if .Get "url" }}
+    {{- $images = slice (.Get "url") }}
+  {{- end }}
+  {{- if .Get "captions" }}
+    {{- $captions = split (.Get "captions") "," }}
+  {{- end }}
+{{- else }}
+  {{- if .Get 0 }}
+    {{- $images = slice (.Get 0) }}
+  {{- end }}
+  {{- if .Get 1 }}
+    {{- $captions = slice (.Get 1) }}
+  {{- end }}
+{{- end }}
 
-{{ range $i, $img := $images }}
-  {{ $url := trim $img " " }}
-  {{ $cap := "" }}
-  {{ if lt $i (len $captions) }}
-    {{ $cap = trim (index $captions $i) " " }}
-  {{ else }}
-    {{ $cap = $captionDefault | default $url }}
-  {{ end }}
+{{- range $i, $img := $images }}
+  {{- $url := trim $img " " }}
+  {{- $cap := "" }}
+  {{- if lt $i (len $captions) }}
+    {{- $cap = trim (index $captions $i) " " }}
+  {{- else }}
+    {{- $cap = $captionDefault | default $url }}
+  {{- end }}
   <figure class="post-figure">
     <a href="{{ $imagePath }}/blog/posts/{{ $url }}" data-fancybox="images" data-caption="{{ $cap }}">
       <img loading="lazy" class="post-img" src="{{ $imagePath }}/blog/posts/{{ $url }}" alt="{{ $cap }}" onerror="showAvifSign();">
     </a>
     <figcaption class="post-figcaption">{{ $cap }}</figcaption>
   </figure>
-{{ end }}
+{{- end }}

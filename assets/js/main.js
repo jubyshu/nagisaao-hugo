@@ -5,9 +5,7 @@ window.showAvifSign = function(e) {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ============================================================
-  // 1. Light & Dark Theme
-  // ============================================================
+  // 1. Theme Switch
   const btn = document.getElementById("theme-toggle");
   const KEY = "theme";
 
@@ -36,9 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ============================================================
   // 2. Back to Top
-  // ============================================================
   const backTop = document.querySelector("#back-top");
 
   if (backTop) {
@@ -73,29 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ============================================================
-  // 3. Block Collapse
-  // ============================================================
-  document.querySelectorAll('.collapsible').forEach((title, index) => {
-    const content = title.nextElementSibling;
-    if (!content) return;
-
-    if (index === 0) {
-      content.hidden = false;
-      content.classList.add('is-open');
-    }
-
-    title.addEventListener('click', () => {
-      const isOpen = content.classList.contains('is-open');
-
-      content.hidden = isOpen;
-      content.classList.toggle('is-open');
-    });
-  });
-
-  // ============================================================
-  // 4. Bookshelf
-  // ============================================================
+  // 3. Bookshelf Collapsible
   const bookshelfTitle = document.getElementById("bookshelf-title");
   const bookshelfContent = document.getElementById("bookshelf-content");
 
@@ -105,10 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ============================================================
   // 5. Calculate Build Days
-  // ============================================================
-
   const dateBegin = new Date("2015/01/03 23:15:15");
   const dateEnd = new Date();
   
@@ -117,53 +88,40 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("runtime").textContent = `${dayDiff} days`;
   }
 
-  // ============================================================
   // 6. Post TOC
-  // ============================================================
-  const tocNav = document.querySelector("#TableOfContents");
-  if (tocNav) {
-    const tocUl = tocNav.querySelector("ul > li > ul");
-    if (tocUl && !tocUl.classList.contains("post-toc")) {
-      tocUl.classList.add("post-toc");
-    }
-  }
-
-  const toc = document.querySelector(".post-toc");
+  const toc = document.querySelector("#TableOfContents");
   const tocWrapper = document.querySelector(".content-wrapper__inner");
-  const headers = document.querySelectorAll(".post h1, .post h2, .post h3, .post h4, .post h5, .post h6");
-  const tocLinks = document.querySelectorAll(".post-toc a");
+  const headers = document.querySelectorAll(".post h2, .post h3, .post h4, .post h5");
+  const tocLinks = document.querySelectorAll("#TableOfContents a");
 
   if (toc && tocWrapper && headers.length > 0) {
-    
     const toggleTocVisibility = () => {
       const clientHeight = window.innerHeight;
       const clientWidth = document.documentElement.clientWidth;
       const leftMargin = (clientWidth - tocWrapper.clientWidth) / 2 - toc.clientWidth - 50;
 
-      toc.style.visibility = (toc.clientHeight < clientHeight * 0.6 && leftMargin >= 50) 
-        ? "visible" 
-        : "hidden";
+      if (toc.clientHeight < clientHeight * 0.6 && leftMargin >= 50) {
+        toc.style.visibility = "visible";
+        toc.style.display = "block"; 
+      } else {
+        toc.style.visibility = "hidden";
+      }
     };
 
     let activeLink = null;
     const observer = new IntersectionObserver((entries) => {
-      let highestEntry = null;
+      const visibleEntries = entries.filter(entry => entry.isIntersecting);
+      
+      if (visibleEntries.length > 0) {
+        const highestEntry = visibleEntries.reduce((prev, curr) => {
+          return (prev.boundingClientRect.top < curr.boundingClientRect.top) ? prev : curr;
+        });
 
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          if (!highestEntry || entry.boundingClientRect.top < highestEntry.boundingClientRect.top) {
-            highestEntry = entry;
-          }
-        }
-      }
-
-      if (highestEntry) {
         const id = highestEntry.target.id;
-        const newActiveLink = document.querySelector(`.post-toc a[href="#${CSS.escape(id)}"]`);
+        const newActiveLink = toc.querySelector(`a[href="#${CSS.escape(id)}"]`);
 
         if (newActiveLink && newActiveLink !== activeLink) {
           tocLinks.forEach(link => link.classList.remove("active"));
-          
           newActiveLink.classList.add("active");
           activeLink = newActiveLink;
         }
@@ -180,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     window.addEventListener("resize", toggleTocVisibility);
-
     toggleTocVisibility();
   }
 });

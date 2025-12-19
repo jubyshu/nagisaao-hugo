@@ -1,0 +1,56 @@
+{{- define "main" -}}
+
+<article class="post-container post-container--single">
+  <section class="post">
+    {{- $library := .Site.Data.library }}
+    <h3 id="bookshelf-title" style="cursor: pointer;">
+      书架 <span class="post_count">({{ len $library }})</span>
+    </h3>
+    <hr/>
+
+    <div id="bookshelf-content" class="collapsed">
+      <div class="book-show">
+        <ul class="book-list">
+          {{- range $library }}
+            <li title="{{ .title }} by {{ .author }}">
+              <a href="https://neodb.social/search?q={{ .title | urlquery }}" target="_blank" rel="noopener">
+                <img src='{{ $.Site.Params.cloudinary }}/blog/books/{{ default "default" .ISBN }}.jpg' alt="{{ .title }}" loading="lazy" /></a>
+            </li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+
+    {{- $books := .Site.Data.books }}
+    <h3>读书<span class="post_count">({{ len $books }})</span></h3>
+    <hr/>
+    {{- $years := .Sections.ByTitle.Reverse }}
+    {{- $year := index $years 0 }}
+    {{- with $year }}
+    <h3>{{ .Params.year }}</h3>
+    {{- $key := string .Params.year }}
+    {{- $booksOfYear := where $books "year" $key }}
+    <ul>
+      <li>已读: <span class="post_num">{{ len $booksOfYear }}</span> 本</li>
+    </ul>
+    <ol class="book-list">
+      {{- range $booksOfYear }}
+      <li>{{ .title }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}</li>
+      {{- end }}
+    </ol>
+    <hr/>
+    {{- end }}
+
+    {{- $otherYears := after 1 $years }}
+    {{- if gt (len $otherYears) 0 }}
+    <h3>More</h3>
+    <ul class="archive-years more">
+    {{- range $otherYears }}
+      <li><a href="{{ .RelPermalink }}">{{ .Params.year }}</a></li>
+    {{- end }}
+    </ul>
+    {{- end }}
+  </section>
+</article>
+
+{{- end -}}

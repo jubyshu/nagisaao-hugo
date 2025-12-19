@@ -1,9 +1,8 @@
-{{ $src := .Get "src" }}
-{{ $width := .Get "width" | default "100%" }}
-{{ $height := .Get "height" | default "360" }}
-{{ $title := .Get "title" | default "" }}
-{{ $allow := .Get "allow" | default "" }}
-
+{{- $src := .Get "src" }}
+{{- $width := .Get "width" | default "100%" }}
+{{- $height := .Get "height" | default "360" }}
+{{- $title := .Get "title" | default "" }}
+{{- $allow := .Get "allow" | default "" }}
 <iframe
   src="{{ $src }}"
   width="{{ $width }}"

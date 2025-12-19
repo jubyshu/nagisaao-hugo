@@ -28,7 +28,7 @@
     <hr/>
 
     {{- $years := .CurrentSection.Parent.Sections.ByTitle.Reverse }}
-    {{- if gt (len $years) 1 }}
+    {{- if gt (len $years) 0 }}
     <h3>More</h3>
     <ul class="archive-years more">
     {{- range $years }}
