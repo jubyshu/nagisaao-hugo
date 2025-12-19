@@ -4,56 +4,45 @@
   <section class="post">
     <h3>统计</h3>
     <hr/>
-    {{- $posts := where .Site.RegularPages "Section" "posts" -}}
+    {{- $posts := where .Site.RegularPages "Type" "posts" }}
     <ul>
       <li>总文章: <span class="post_num">{{ len $posts }}</span> 篇</li>
-      <li>
-        {{- $totalWords := 0 -}}
-        {{- range $posts -}}
-          {{- $totalWords = add $totalWords .WordCount -}}
-        {{- end -}}
-        总字数: <span class="post_num">{{ $totalWords }}</span> 字
-      </li>
+      {{- $totalWords := 0 }}
+      {{- range $posts }}
+        {{- $totalWords = add $totalWords .WordCount }}
+      {{- end }}
+      <li>总字数: <span class="post_num">{{ $totalWords }}</span> 字</li>
     </ul>
     <hr/>
 
-    {{- $years := .Sections.ByTitle.Reverse -}}
-    {{ with index $years 0 -}}
+    {{- $years := .Sections.ByTitle.Reverse }}
+    {{- with index $years 0 }}
     <h3>{{ .Title }}</h3>
     <ul>
-      <li>
-        文章: <span class="post_num">{{ len .Pages }}</span> 篇
-      </li>
-      <li>
-        {{- $totalWords := 0 -}}
-        {{- range .Pages -}}
-          {{- $totalWords = add $totalWords .WordCount -}}
-        {{- end -}}
-        字数: <span class="post_num">{{ $totalWords }}</span> 字
-      </li>
+      <li>文章: <span class="post_num">{{ len .Pages }}</span> 篇</li>
+      {{- $totalWords := 0 }}
+      {{- range .Pages }}
+        {{- $totalWords = add $totalWords .WordCount }}
+      {{- end }}
+      <li>字数: <span class="post_num">{{ $totalWords }}</span> 字</li>
     </ul>
     <ul class="archive-year">
-      {{ range .Pages.ByDate.Reverse -}}
-        <li>
-          {{ .Date.Format "01-02" }} &raquo;
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
-      {{ end -}}
+    {{- range .Pages.ByDate.Reverse -}}
+      <li>{{ .Date.Format "01-02" }} » <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
     </ul>
     <hr/>
-    {{ end -}}
+    {{- end }}
 
-    {{- $otherYears := after 1 $years -}}
-    {{ if gt (len $otherYears) 0 -}}
+    {{- $otherYears := after 1 $years }}
+    {{- if gt (len $otherYears) 0 }}
     <h3>More</h3>
     <ul class="archive-years more">
-      {{ range $otherYears -}}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
-      {{ end }}
+    {{- range $otherYears }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
     </ul>
-    {{ end -}}
+    {{- end }}
   </section>
 </article>
 

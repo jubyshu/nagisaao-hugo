@@ -2,20 +2,27 @@
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <section class="post">
-    {{ if .Title }}
+    {{ if .Title -}}
     <h3>{{ .Title }}</h3>
-    {{ end }}
+    {{ end -}}
     <hr/>
     <ul>
-      {{- $paginator := .Paginate .RegularPages 20 -}}
+      {{ $paginator := .Paginate .RegularPages 25 -}}
       {{ range $paginator.Pages -}}
       <li>
-        {{ .Date.Format "Jan 02, 2006" }} &raquo; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ .Date.Format "Jan 02, 2006" }} » <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       </li>
       {{ end -}}
     </ul>
-    {{ partial "pagination.html" . }}
+
+    {{- partial "pagination.html" . }}
+
+    {{- if eq .Data.Plural "tags" }}
+    <p><a href="/tags/">>> 查看更多标签</a></p>
+    {{- else }}
+    <p><a href="/categories/">>> 查看更多分类</a></p>
+    {{- end }}
   </section>
 </article>
 
-{{ end -}}
+{{- end -}}

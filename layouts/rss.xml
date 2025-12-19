@@ -5,31 +5,31 @@
     <description>{{ .Site.Params.description }}</description>
     <link>{{ .Site.BaseURL }}</link>
     <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
-    <pubDate>{{ now.Format "02 Jan 2006 15:04:05-0700" }}</pubDate>
-    <lastBuildDate>{{ .Lastmod.Format "02 Jan 2006 15:04:05-0700" }}</lastBuildDate>
+    <pubDate>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</pubDate>
+    <lastBuildDate>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}</lastBuildDate>
     <generator>Hugo {{ hugo.Version }}</generator>
-    {{ range first 15 (where .Site.RegularPages "Section" "posts") }}
+    {{- range first 15 (where .Site.RegularPages "Type" "posts") }}
     <item>
       <title>{{ .Title }}</title>
       <description>{{ .Summary | htmlEscape }}</description>
       <content:encoded>{{ .Content | transform.XMLEscape | safeHTML }}</content:encoded>
       <author>{{ .Site.Params.author }}</author>
-      <pubDate>{{ .Date.Format "02 Jan 2006 15:04:05-0700" }}</pubDate>
+      <pubDate>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</pubDate>
       <link>{{ .Permalink }}</link>
       <guid isPermaLink="true">{{ .Permalink }}</guid>
-      {{ range .Params.tags }}
+      {{- range .Params.tags }}
       <category>{{ . | htmlEscape }}</category>
-      {{ end }}
-      {{ range .Params.categories }}
+      {{- end }}
+      {{- range .Params.categories }}
       <category>{{ . | htmlEscape }}</category>
-      {{ end }}
+      {{- end }}
     </item>
-    {{ end }}
-    {{ with .Site.Params.follow }}
+    {{- end }}
+    {{- with .Site.Params.follow }}
     <follow_challenge>
       <feedId>{{ .feed_id }}</feedId>
       <userId>{{ .user_id }}</userId>
     </follow_challenge>
-    {{ end }}
+    {{- end }}
   </channel>
 </rss>

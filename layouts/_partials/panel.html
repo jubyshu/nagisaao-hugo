@@ -20,9 +20,9 @@
   </div>
   <nav class="cover-navigation">
     <ul class="navigation">
-      {{ range .Site.Menus.main -}}
+      {{- range .Site.Menus.main }}
       <li class="navigation__item"><a rel="nofollow" href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
-      {{ end -}}
+      {{- end }}
     </ul>
   </nav>
 </header>

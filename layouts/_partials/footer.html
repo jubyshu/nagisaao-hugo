@@ -1,11 +1,11 @@
 <footer class="footer">
   <div>
-    {{ partial "social.html" . }}
+    {{ partial "social.html" . -}}
   </div>
   <div class="footer_div">
-    <br>
+    <br/>
     <span class="copyright">{{ .Site.Copyright }}</span> 2015-{{ now.Format "2006" }}
-    <br><br>
+    <br/><br/>
     This site has been running for <span id="runtime"></span> silently.
   </div>
 </footer>
