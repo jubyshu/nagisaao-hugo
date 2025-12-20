@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const duration = 500;
       const start = window.scrollY || document.documentElement.scrollTop;
       const startTime = performance.now();
-
       const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
       const step = (currentTime) => {

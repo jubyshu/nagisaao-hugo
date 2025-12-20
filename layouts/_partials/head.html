@@ -33,12 +33,14 @@
   {{- if .Params.image }}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/@fancyapps/ui@4.0/dist/fancybox.css">
   {{- end }}
-  {{- if eq .Title "搜索" }}
+  {{- if eq .RelPermalink "/search/" }}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css">
   {{- end }}
+  {{- if or (eq .Type "posts") (eq .RelPermalink "/guestbook/") }}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/disqusjs@1.3/dist/disqusjs.css">
+  {{- end }}
   {{- $css := resources.Get "scss/main.scss" | css.Sass (dict "targetPath" "css/main.css" "outputStyle" "compressed" "transpiler" "dartsass") | fingerprint }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}feed.xml">
   <meta name="google-site-verification" content="{{ .Site.Params.google_site_verification }}">
