@@ -1,118 +1,69 @@
 @use "variable" as v;
 
-// ------------------------------------------------------------
-// Pager (Prev/Next Navigation)
-// ------------------------------------------------------------
-.post-container {
-  margin-top: 20px;
-}
+// -------------------------------------
+// Container
+// -------------------------------------
+.container {
+  margin: 60px auto;
+  background-color: v.$page-bg-color;
+  max-width: 780px;
 
-.pager {
-  margin-top: 20px;
+  @media (max-width: 960px) {
+    margin: 0 auto;
+    max-width: none;
 
-  a {
-    width: 100%;
-    padding: 10px;
-    color: v.$meta-font-color;
-    display: block;
-
-    > span {
-      padding: 10px 0;
-      transition: color 0.3s;
-    }
-
-    &:hover,
-    &:focus {
-      > span {
-        color: v.$hover-color;
-      }
+    .content-wrapper__inner {
+      padding: 0 3%;
     }
   }
 }
 
-.next,
-.previous {
-  margin-top: 20px;
-}
+.content-wrapper {
+  display: block;
+  z-index: 800;
+  width: 100%;
+  max-width: 780px;
+  margin: 40px auto auto auto;
 
-.next { float: right; }
-.previous { float: left; }
-
-// ------------------------------------------------------------
-// Post Content & Meta
-// ------------------------------------------------------------
-.post-comments {
-  border-top: 1px solid v.$border-color;
-  padding: 120px 0 0;
-}
-
-.post-meta {
-  margin: 0 0 1.8em 0;
-  color: v.$meta-font-color;
-  font-size: 0.9em;
-}
-
-.post {
-  img {
-    cursor: pointer;
-    max-width: 100%;
-    margin: 1em auto;
-    border-radius: 3px;
-    text-align: center;
-    display: block;
+  &__inner {
+    padding: 0 30px;
   }
 
-  pre {
-    width: auto;
-    overflow: auto;
+  p {
+    text-align: justify;
+    text-justify: distribute;
+    word-break: break-word;
+    word-wrap: break-word;
   }
 
-  hr {
-    margin: 1em auto;
-    border-top: 1px solid v.$border-color;
+  @media (max-width: 960px) {
+    &__inner {
+      padding: 0 3%;
+    }
   }
 
-  &.not_page,
-  &-tags {
-    hr {
-      border-top: none;
-      text-align: center;
-
-      &::before {
-        content: "...";
-        display: inline-block;
-        font-size: 1.5em;
-        letter-spacing: 0.5em;
-        margin: 0.5em auto;
-        color: v.$sub-link-color;
-      }
+  @media (max-width: 420px) {
+    width: 96%;
+    
+    &__inner {
+      padding: 0 2%;
     }
 
-    a {
-      color: v.$sub-link-color;
-      border-bottom: 1px solid v.$sub-link-color;
-
-      &:hover {
-        color: v.$hover-color;
-      }
+    h1 {
+      margin-top: 0;
+      font-size: 1.6em;
+      letter-spacing: 0;
     }
 
-    h3 {
-      padding-bottom: 5px;
-      margin-top: 1.5em;
-      border-bottom: 1px solid v.$border-color;
-    }
-
-    h3,
-    h4 {
-      margin-bottom: 1em;
+    h2 {
+      font-size: 1.4em;
     }
   }
 }
 
-// ------------------------------------------------------------
-// Panel Layout
-// ------------------------------------------------------------
+// -------------------------------------
+// Panel
+// -------------------------------------
 .panel-cover {
   display: block;
   position: relative;
@@ -121,7 +72,7 @@
   max-width: 780px;
   margin: auto;
 
-  @media all and (max-width: 780px) {
+  @media (max-width: 780px) {
     width: 100%;
     margin-left: 0;
   }
@@ -130,13 +81,12 @@
     margin: 20px 0 10px 0;
     font-size: 1.8em;
     letter-spacing: 3px;
-    color: #FFF;
 
-    @media all and (max-width: 1100px) {
+    @media (max-width: 1100px) {
       font-size: 1.8em;
     }
 
-    @media all and (max-width: 420px) {
+    @media (max-width: 420px) {
       margin-bottom: .1em;
       font-size: 1.8em;
     }
@@ -147,7 +97,7 @@
     font-weight: normal;
     margin: 0 10px;
 
-    @media all and (max-width: 960px) {
+    @media (max-width: 960px) {
       display: block;
       margin-top: 10px;
     }
@@ -176,9 +126,8 @@
   height: 180px;
   background: v.$cover-image no-repeat center center;
   background-size: cover;
-  // border-bottom: 1px solid v.$border-color;
 
-  @media all and (max-width: 960px) {
+  @media (max-width: 960px) {
     height: 180px;
     position: relative;
   }
@@ -196,21 +145,15 @@
       color: v.$title-color;
     }
 
-    @media all and (max-width: 960px) {
+    @media (max-width: 960px) {
       display: block;
     }
   }
 }
 
-// ------------------------------------------------------------
+// -------------------------------------
 // Navigation
-// ------------------------------------------------------------
-nav {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-}
-
+// -------------------------------------
 .navigation {
   display: flex;
   justify-content: center;
@@ -265,14 +208,12 @@ nav {
     }
   }
 
-  &__item_social {
-    img:hover {
-      background: v.$sub-link-color;
-      border-radius: 50%;
-    }
+  &__item_social img:hover {
+    background: v.$sub-link-color;
+    border-radius: 50%;  
   }
 
-  @media all and (max-width: 420px) {
+  @media (max-width: 420px) {
     gap: 5px;
 
     &__item a {
@@ -282,65 +223,52 @@ nav {
   }
 }
 
-// ------------------------------------------------------------
-// Buttons & Pagination
-// ------------------------------------------------------------
-.btn {
-  margin: 0;
-  font-size: .8em;
-  color: v.$sub-font-color;
+// -------------------------------------
+// Home Page Nav
+// -------------------------------------
+.home-nav {
+  margin-top: -30px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
 
   a {
+    display: flex;
+    align-items: center;
+    color: v.$hover-color;
+  }
+
+  img {
     display: block;
-    text-align: left;
-    margin: 0 10px;
-    font-size: .4em;
-    padding: 5px 0;
-    color: v.$sub-font-color;
-    border-bottom: 0.1px solid v.$border-color;
-    text-shadow: none;
+    vertical-align: middle;
   }
 }
 
-.pagination {
-  display: block;
-  margin: 0 0 2em 0;
-  text-align: center;
+.category {
+  font-size: 0.8em;
 
-  &__page-number {
+  ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
     margin: 0;
-    font-size: .8em;
-    color: v.$sub-font-color;
+    gap: 5px;
   }
 
-  &__newer { margin-right: 1em; }
-  &__older { margin-left: 1em; }
+  li {
+    display: inline;
+  }
 }
 
-// ------------------------------------------------------------
-// Icons
-// ------------------------------------------------------------
-i {
-  font-family: 'entypo';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 18px;
-}
-
-.social {
-  font-size: 22px;
-}
-
-.icon-social {
-  font-family: 'entypo-social';
-  font-size: 22px;
-  display: block;
-  position: relative;
-}
-
-// ------------------------------------------------------------
-// Post List (Archive/Index)
-// ------------------------------------------------------------
+// -------------------------------------
+// Home Post List
+// -------------------------------------
 .post-list {
   margin: 0;
   padding: 0;
@@ -392,11 +320,171 @@ i {
     margin: 10px 0;
     border-top: 1px solid v.$border-color;
   }
+
+  .excerpt {
+    font-size: 1em;
+    color: v.$sub-font-color;
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }
 
-// ------------------------------------------------------------
-// Global Helpers
-// ------------------------------------------------------------
-*:focus {
-  outline: transparent;
+// -------------------------------------
+// Blog Post
+// -------------------------------------
+.post-meta {
+  margin: 0 0 1.8em 0;
+  color: v.$meta-font-color;
+  font-size: 0.9em;
+}
+
+.post {
+  img {
+    cursor: pointer;
+    max-width: 100%;
+    margin: 1em auto;
+    border-radius: 3px;
+    text-align: center;
+    display: block;
+  }
+
+  pre {
+    width: auto;
+    overflow: auto;
+  }
+
+  hr {
+    margin: 1em auto;
+    border-top: 1px solid v.$border-color;
+  }
+
+  &.not_page {
+    hr {
+      border-top: none;
+      text-align: center;
+
+      &::before {
+        content: "...";
+        display: inline-block;
+        font-size: 1.5em;
+        letter-spacing: 0.5em;
+        margin: 0.5em auto;
+        color: v.$sub-link-color;
+      }
+    }
+
+    a {
+      color: v.$sub-link-color;
+      border-bottom: 1px solid v.$sub-link-color;
+
+      &:hover {
+        color: v.$hover-color;
+      }
+    }
+
+    h3 {
+      padding-bottom: 5px;
+      margin-top: 1.5em;
+      border-bottom: 1px solid v.$border-color;
+    }
+
+    h3, h4 {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+// -------------------------------------
+// Prev & Next Post
+// -------------------------------------
+.post-container {
+  margin-top: 20px;
+}
+
+.pager {
+  margin-top: 20px;
+
+  a {
+    width: 100%;
+    padding: 10px;
+    color: v.$meta-font-color;
+    display: block;
+
+    > span {
+      padding: 10px 0;
+      transition: color 0.3s;
+    }
+
+    &:hover,
+    &:focus {
+      > span {
+        color: v.$hover-color;
+      }
+    }
+  }
+}
+
+.next,
+.previous {
+  margin-top: 20px;
+}
+
+.next {
+  float: right;
+}
+
+.previous {
+  float: left;
+}
+
+// -------------------------------------
+// Pagination
+// -------------------------------------
+.pagination {
+  display: block;
+  margin: 0 0 2em 0;
+  text-align: center;
+
+  .paginate-btn {
+    font-size: .8em;
+    color: v.$sub-font-color;
+  }
+
+  &__page-number {
+    margin: 0;
+    font-size: .8em;
+    color: v.$sub-font-color;
+  }
+
+  &__newer {
+    margin-right: 1em;
+  }
+
+  &__older {
+    margin-left: 1em;
+  }
+}
+
+// -------------------------------------
+// Footer
+// -------------------------------------
+.footer {
+  display: block;
+  padding: 2em 0 15px 0;
+  border-top: 1px solid v.$border-color;
+  font-size: .7em;
+  color: v.$sub-font-color;
+
+  &_info {
+    text-align: center;
+    width: 100%;
+
+    .copyright {
+      color: v.$link-color;
+    }
+
+    #runtime {
+      color: v.$sub-link-color;
+    }
+  }
 }

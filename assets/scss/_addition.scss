@@ -1,6 +1,8 @@
 @use "variable" as v;
 
+// -------------------------------------
 // Theme Switch Button
+// -------------------------------------
 .theme-toggle {
   position: absolute;
   top: 15px;
@@ -24,8 +26,8 @@
     padding: 0;
 
     svg {
-      width: 12px;
-      height: 12px;
+      width: 15px;
+      height: 15px;
     }
   }
 }
@@ -65,7 +67,9 @@
   transform: rotate(0deg) scale(1);
 }
 
-// Back to Top Button
+// -------------------------------------
+// Back Top Button
+// -------------------------------------
 #back-top {
   a {
     position: fixed;
@@ -93,7 +97,9 @@
   margin-top: 2px;
 }
 
-// Post & Books Count
+// -------------------------------------
+// Post & Book Count
+// -------------------------------------
 .post_count {
   color: v.$sub-font-color;
   font-size: 0.8em;
@@ -104,7 +110,9 @@
   color: v.$sub-link-color;
 }
 
-// Archive Years
+// -------------------------------------
+// More Years & Tag List
+// -------------------------------------
 .archive-years.more, .taxonomy-list {
   display: flex;
   flex-wrap: wrap;
@@ -120,56 +128,9 @@
   }
 }
 
-// Category Menu & Search Page
-.index-meta {
-  margin-top: -30px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.category {
-  font-size: 0.8em;
-
-  ul {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    gap: 5px;
-  }
-
-  li {
-    display: inline;
-  }
-}
-
-.search-icon {
-  display: flex;
-  align-items: center;
-
-  a {
-    display: flex;
-    align-items: center;
-    color: v.$hover-color;
-  }
-
-  img {
-    display: block;
-    vertical-align: middle;
-  }
-}
-
-.tag_box {
-  margin: 0;
-
-  li {
-    display: inline;
-    margin-right: 10px;
-  }
-}
-
+// -------------------------------------
+// Search Input
+// -------------------------------------
 [data-theme="dark"] #search-searchbar {
   .aa-Form {
     background: #21262d;
@@ -189,7 +150,9 @@
   }
 }
 
+// -------------------------------------
 // Post Figure
+// -------------------------------------
 .post-figcaption {
   position: relative;
   display: none;
@@ -199,7 +162,9 @@
   text-align: center;
 }
 
+// -------------------------------------
 // Bookshelf Collapsible
+// -------------------------------------
 #bookshelf-content {
   overflow: hidden;
   transition: max-height .35s ease, opacity .25s ease;
@@ -212,7 +177,9 @@
   }
 }
 
+// -------------------------------------
 // Bookshelf List
+// -------------------------------------
 .book-show {
   overflow: hidden;
 }
@@ -240,7 +207,14 @@ ul.book-list {
   }
 }
 
+// -------------------------------------
 // DisqusJS
+// -------------------------------------
+.post-comments {
+  border-top: 1px solid v.$border-color;
+  padding: 120px 0 0;
+}
+
 #dsqjs {
   margin-bottom: 20px;
 
@@ -289,7 +263,9 @@ ul.book-list {
   }
 }
 
+// -------------------------------------
 // Footnotes
+// -------------------------------------
 sup a {
   font-size: 0.7em;
   line-height: 0;
@@ -333,7 +309,9 @@ sup a {
   }
 }
 
+// -------------------------------------
 // Table of Contents 
+// -------------------------------------
 #TableOfContents {
   visibility: hidden;
   position: fixed;
@@ -349,7 +327,7 @@ sup a {
 
   &::before {
     display: block;
-    content: "TOC";
+    content: "ToC";
     margin: 5px;
     font-size: 1.1em;
   }
@@ -383,24 +361,36 @@ sup a {
   } 
 }
 
+// -------------------------------------
 // Post Tags
+// -------------------------------------
 .post-tags {
-    font-size: .85em;
-    margin-top: 2em;
+  font-size: .85em;
+  margin-top: 2em;
 
-    ul {
-      margin: 0;
-      padding: 0;
+  ul {
+    margin: 0;
+    padding: 0;
 
-      li {
-        display: inline;
-        list-style: none;
-        margin-right: 1em;
-      }
+    li {
+      display: inline;
+      list-style: none;
+      margin-right: 1em;
     }
+  }
+  a {
+    color: v.$sub-link-color;
+    border-bottom: 1px solid v.$sub-link-color;
+
+    &:hover {
+      color: v.$hover-color;
+    }
+  }
 }
 
-// Text Fold (Details & Summary)
+// -------------------------------------
+// Details
+// -------------------------------------
 details {
   p {
     font-family: v.$quote-font;

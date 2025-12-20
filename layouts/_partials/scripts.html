@@ -2,11 +2,11 @@
 <script async src="https://{{ .Site.Params.cdn }}/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 {{- end }}
 {{- if .Params.code }}
-{{- $prismjs := resources.Get "js/prism.js" | minify }}
-<script async src="{{ $prismjs.RelPermalink }}"></script>
+{{- $prismjs := resources.Get "js/prism.js" | minify | fingerprint }}
+<script async src="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}" crossorigin="anonymous"></script>
 {{- end }}
 {{- if .Params.math }}
 <script id="MathJax-script" async src="https://{{ .Site.Params.cdn }}/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {{- end }}
-{{- $mainjs := resources.Get "js/main.js" | minify }}
-<script src="{{ $mainjs.RelPermalink }}"></script>
+{{- $mainjs := resources.Get "js/main.js" | minify | fingerprint }}
+<script src="{{ $mainjs.RelPermalink }}" integrity="{{ $mainjs.Data.Integrity }}" crossorigin="anonymous"></script>

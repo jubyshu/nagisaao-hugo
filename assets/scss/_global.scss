@@ -1,8 +1,5 @@
 @use "variable" as v;
 
-// ------------------------------------------------------------
-// Basic Element
-// ------------------------------------------------------------
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, button {
   margin: 0;
   padding: 0;
@@ -16,14 +13,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-q {
-  quotes: none;
-  border-bottom: 1px dashed v.$link-color;
-}
-
 html {
   height: 100%;
   max-height: 100%;
+  background-color: v.$body-bg-color;
+
 }
 
 body {
@@ -48,10 +42,6 @@ body {
   }
 }
 
-// ------------------------------------------------------------
-// Typography
-// ------------------------------------------------------------
-
 h1, h2, h3, h4, h5 {
   margin-top: 1em;
   margin-bottom: 0.5em;
@@ -66,7 +56,9 @@ h1 {
   letter-spacing: .05em;
 }
 
-h2 { font-size: 1.4em; }
+h2 {
+  font-size: 1.4em;
+}
 
 h3 {
   position: relative;
@@ -93,19 +85,6 @@ p {
   }
 }
 
-code {
-  font-size: 0.9em;
-  padding: 0.15em 0.35em;
-  border-radius: 6px;
-  background: v.$code-bg-color;
-  color: v.$code-font-color;
-  border: 1px solid v.$border-color;
-  white-space: normal;
-  word-break: break-word;
-  line-height: 1;
-  box-decoration-break: clone;
-}
-
 a {
   color: v.$link-color;
   text-decoration: none;
@@ -125,6 +104,15 @@ em {
   font-style: italic;
 }
 
+q {
+  quotes: none;
+  border-bottom: 1px dashed v.$link-color;
+}
+
+hr {
+  border: none;
+}
+
 blockquote {
   font-family: v.$quote-font;
   font-weight: normal;
@@ -137,17 +125,30 @@ blockquote {
   p {
     padding: 0 1em;
 
-    &:first-child { padding-top: 1em; }
-    &:last-child { padding-bottom: 1em; }
+    &:first-child {
+      padding-top: 1em;
+    }
+
+    &:last-child {
+      padding-bottom: 1em;
+    }
   }
 }
 
-// ------------------------------------------------------------
-// Lists
-// ------------------------------------------------------------
+code {
+  font-size: 0.9em;
+  padding: 0.15em 0.35em;
+  border-radius: 6px;
+  background: v.$code-bg-color;
+  color: v.$code-font-color;
+  border: 1px solid v.$border-color;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1;
+  box-decoration-break: clone;
+}
 
-ol,
-ul {
+ol, ul {
   margin: 0 0 1.3em 2em;
 
   li {
@@ -161,19 +162,18 @@ ul {
     }
   }
 
-  // Nested lists
-  ol,
-  ul {
+  ol, ul {
     margin: .1em 0 .2em 2em;
   }
 }
 
-ol { list-style-type: decimal; }
-ul { list-style-type: circle; }
+ol { 
+  list-style-type: decimal;
+}
 
-// ------------------------------------------------------------
-// Tables
-// ------------------------------------------------------------
+ul { 
+  list-style-type: circle;
+}
 
 table {
   color: v.$sub-font-color;
@@ -194,92 +194,27 @@ table {
     background: v.$quote-bg-color;
   }
 
-  th,
-  td {
+  th, td {
     border: 1px solid v.$border-color;
     text-align: center;
   }
 }
 
-// ------------------------------------------------------------
-// Layout & Components
-// ------------------------------------------------------------
-
-.excerpt {
-  font-size: 1em;
-  color: v.$sub-font-color;
-  text-align: justify;
-  text-justify: inter-word;
+i {
+  font-family: 'entypo';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
 }
 
-.block-heading {
-  display: inline;
-  float: left;
-  width: 940px;
-  margin: 0 10px;
+nav {
+  display: inline-block;
   position: relative;
-  bottom: -15px;
-  font-size: .8em;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.container {
-  margin: 60px auto;
-  background-color: v.$page-bg-color;
-  max-width: 780px;
-}
-
-.content-wrapper {
-  display: block;
-  z-index: 800;
   width: 100%;
-  max-width: 780px;
-  margin: 40px auto auto auto;
-
-  &__inner {
-    padding: 0 30px;
-  }
-
-  p {
-    text-align: justify;
-    text-justify: distribute;
-    word-break: break-word;
-    word-wrap: break-word;
-  }
 }
 
-.footer {
-  display: block;
-  padding: 2em 0 15px 0;
-  border-top: 1px solid v.$border-color;
-  font-size: .7em;
-  color: v.$sub-font-color;
-
-  &_div {
-    text-align: center;
-    width: 100%;
-
-    .copyright {
-      color: v.$link-color;
-    }
-
-    #runtime {
-      color: v.$sub-link-color;
-    }
-  }
-}
-
-hr {
-  border: none;
-}
-
-.section-title__divider {
-  width: 30%;
-  margin: 2.2em 0 2.1em 0;
-  border-top: 1px solid v.$border-color;
+*:focus {
+  outline: transparent;
 }
 
 .hidden {

@@ -1,6 +1,6 @@
 {{- define "main" -}}
 
-<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/WebPage">
   <section class="post">
     {{- $isTagPage := and (eq .Kind "taxonomy") (eq .Data.Singular "tag") }}
     {{- if or $isTagPage (eq .Kind "home") }}

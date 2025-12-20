@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css">
   {{- end }}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/disqusjs@1.3/dist/disqusjs.css">
-  {{- $css := resources.Get "scss/main.scss" | css.Sass (dict "targetPath" "css/main.css" "outputStyle" "compressed" "transpiler" "dartsass") }}
+  {{- $css := resources.Get "scss/main.scss" | css.Sass (dict "targetPath" "css/main.css" "outputStyle" "compressed" "transpiler" "dartsass") | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}feed.xml">
