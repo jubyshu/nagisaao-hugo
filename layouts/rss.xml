@@ -11,7 +11,7 @@
     {{- range first 15 (where .Site.RegularPages "Type" "posts") }}
     <item>
       <title>{{ .Title }}</title>
-      <description>{{ .Summary | htmlEscape }}</description>
+      <description>{{ .Summary | transform.XMLEscape | safeHTML }}</description>
       <content:encoded>{{ .Content | transform.XMLEscape | safeHTML }}</content:encoded>
       <author>{{ .Site.Params.author }}</author>
       <pubDate>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</pubDate>
