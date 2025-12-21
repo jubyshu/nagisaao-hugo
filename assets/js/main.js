@@ -5,24 +5,41 @@ window.showAvifSign = function(e) {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  // 0. Initial Cover Image
+  (function initCoverImage() {
+    const theme = document.documentElement.getAttribute("data-theme");
+    const img = document.querySelector(".bg-cover");
+    if (!img || !theme) return;
+    if (theme === "dark" && !img.src.includes("cover-dark")) {
+      img.src = "/images/cover-dark.webp";
+    }
+  })();
+
   // 1. Theme Switch
   const btn = document.getElementById("theme-toggle");
   const KEY = "theme";
 
-  function safeSave(t) {
-    try { localStorage.setItem(KEY, t); }
-    catch (e) {}
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    const img = document.querySelector(".bg-cover");
+    if (img) {
+      img.src = t === "dark"
+        ? "/images/cover-dark.webp"
+        : "/images/cover-light.webp";
+    }
   }
 
-  function apply(t) {
-    document.documentElement.setAttribute("data-theme", t);
+  function safeSave(t) {
+    try {
+      localStorage.setItem(KEY, t);
+    } catch (e) {}
   }
 
   if (btn) {
     btn.addEventListener("click", () => {
       const current = document.documentElement.getAttribute("data-theme");
       const next = current === "dark" ? "light" : "dark";
-      apply(next);
+      applyTheme(next);
       safeSave(next);
     });
   }
@@ -30,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mq = window.matchMedia("(prefers-color-scheme: dark)");
   mq.addEventListener("change", (e) => {
     if (!localStorage.getItem(KEY)) {
-      apply(e.matches ? "dark" : "light");
+      applyTheme(e.matches ? "dark" : "light");
     }
   });
 
