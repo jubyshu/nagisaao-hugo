@@ -1,12 +1,12 @@
+{{- $mainjs := resources.Get "js/main.js" | minify | fingerprint }}
+<script src="{{ $mainjs.RelPermalink }}" integrity="{{ $mainjs.Data.Integrity }}" crossorigin="anonymous" defer></script>
 {{- if .Params.image }}
-<script async src="https://{{ .Site.Params.cdn }}/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<script src="https://{{ .Site.Params.cdn }}/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
 {{- end }}
 {{- if .Params.code }}
 {{- $prismjs := resources.Get "js/prism.js" | minify | fingerprint }}
-<script async src="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script src="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}" crossorigin="anonymous" defer></script>
 {{- end }}
 {{- if .Params.math }}
-<script id="MathJax-script" async src="https://{{ .Site.Params.cdn }}/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script id="MathJax-script" src="https://{{ .Site.Params.cdn }}/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
 {{- end }}
-{{- $mainjs := resources.Get "js/main.js" | minify | fingerprint }}
-<script src="{{ $mainjs.RelPermalink }}" integrity="{{ $mainjs.Data.Integrity }}" crossorigin="anonymous"></script>
