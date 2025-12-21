@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 6. Post TOC
   const toc = document.querySelector("#TableOfContents");
-  const tocWrapper = document.querySelector(".content-wrapper__inner");
+  const tocWrapper = document.querySelector(".content-wrapper_inner");
   const headers = document.querySelectorAll(".post h2, .post h3, .post h4, .post h5");
   const tocLinks = document.querySelectorAll("#TableOfContents a");
 

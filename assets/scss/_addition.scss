@@ -16,7 +16,7 @@
   background: v.$theme-btn-bg-color;
   border: none;
   cursor: pointer;
-  transition: background .15s ease, transform .15s ease;
+  transition: background-color .15s ease, transform .15s ease;
 
   @media (max-width: 600px) {
     top: 10px;
@@ -83,7 +83,7 @@
     height: 36px;
     width: 36px;
     background-color: v.$top-btn-bg-color;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
   }
 }
 
@@ -167,7 +167,7 @@
 // -------------------------------------
 #bookshelf-content {
   overflow: hidden;
-  transition: max-height .35s ease, opacity .25s ease;
+  transition: transform .35s ease, opacity .25s ease;
   max-height: 0;
   opacity: 0;
 
@@ -180,10 +180,6 @@
 // -------------------------------------
 // Bookshelf List
 // -------------------------------------
-.book-show {
-  overflow: hidden;
-}
-
 ul.book-list {
   display: flex;
   flex-wrap: wrap;

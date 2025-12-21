@@ -91,7 +91,7 @@ a {
 
   &:hover {
     color: v.$hover-color;
-    transition: .5s; 
+    transition: color 0.3s ease; 
   }
 }
 
@@ -211,12 +211,4 @@ nav {
   display: inline-block;
   position: relative;
   width: 100%;
-}
-
-*:focus {
-  outline: transparent;
-}
-
-.hidden {
-  display: none !important;
 }

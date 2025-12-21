@@ -1,6 +1,6 @@
 {{- define "main" -}}
 
-<article class="post-container post-container--single">
+<article class="post-container post-container-single">
   <section class="post">
     {{- $library := .Site.Data.library }}
     <h3 id="bookshelf-title" style="cursor: pointer;">
@@ -9,16 +9,14 @@
     <hr/>
 
     <div id="bookshelf-content" class="collapsed">
-      <div class="book-show">
-        <ul class="book-list">
-          {{- range $library }}
-            <li title="{{ .title }} by {{ .author }}">
-              <a href="https://neodb.social/search?q={{ .title | urlquery }}" target="_blank" rel="noopener">
-                <img src='{{ $.Site.Params.cloudinary }}/blog/books/{{ default "default" .ISBN }}.jpg' alt="{{ .title }}" loading="lazy" /></a>
-            </li>
-          {{- end }}
-        </ul>
-      </div>
+      <ul class="book-list">
+        {{- range $library }}
+          <li title="{{ .title }} by {{ .author }}">
+            <a href="https://neodb.social/search?q={{ .title | urlquery }}" target="_blank" rel="noopener">
+              <img src='{{ $.Site.Params.cloudinary }}/blog/books/{{ default "default" .ISBN }}.jpg' alt="{{ .title }}" loading="lazy" /></a>
+          </li>
+        {{- end }}
+      </ul>
     </div>
 
     {{- $books := .Site.Data.books }}

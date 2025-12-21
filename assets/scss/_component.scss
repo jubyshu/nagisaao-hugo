@@ -12,7 +12,7 @@
     margin: 0 auto;
     max-width: none;
 
-    .content-wrapper__inner {
+    .content-wrapper_inner {
       padding: 0 3%;
     }
   }
@@ -25,7 +25,7 @@
   max-width: 780px;
   margin: 40px auto auto auto;
 
-  &__inner {
+  &_inner {
     padding: 0 30px;
   }
 
@@ -37,7 +37,7 @@
   }
 
   @media (max-width: 960px) {
-    &__inner {
+    &_inner {
       padding: 0 3%;
     }
   }
@@ -45,7 +45,7 @@
   @media (max-width: 420px) {
     width: 96%;
     
-    &__inner {
+    &_inner {
       padding: 0 2%;
     }
 
@@ -132,7 +132,7 @@
     position: relative;
   }
 
-  &__inner {
+  &_inner {
     position: relative;
     z-index: 10;
     padding: 0;
@@ -166,7 +166,7 @@
   list-style-type: none;
   letter-spacing: 1px;
 
-  &__item {
+  &_item {
     display: inline-block;
     position: relative;
     line-height: 1em;
@@ -179,7 +179,7 @@
       font-size: 1em;
       color: v.$sub-font-color;
       text-shadow: none;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease;
     }
 
     &:hover {
@@ -192,7 +192,7 @@
     }
   }
 
-  &--social {
+  &-social {
     margin-top: 0.5em;
     gap: 5px;
 
@@ -200,7 +200,10 @@
       padding: 5px;
       border: 0;
 
-      .label { display: none; }
+      .label {
+        display: none;
+      }
+      
       .icon {
         display: inline-block;
         font-size: 0.8em;
@@ -208,7 +211,7 @@
     }
   }
 
-  &__item_social img:hover {
+  &_item_social img:hover {
     background: v.$sub-link-color;
     border-radius: 50%;  
   }
@@ -216,7 +219,7 @@
   @media (max-width: 420px) {
     gap: 5px;
 
-    &__item a {
+    &_item a {
       padding: 3px;
       font-size: 0.95em;
     }
@@ -412,7 +415,7 @@
 
     > span {
       padding: 10px 0;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
     &:hover,

@@ -9,7 +9,7 @@ description: I started my blog on WordPress in 2015 and migrated it to Jekyll in
 
 `Update at 2025-12-14.`
 
-------------------
+---
 
 #### Blog
 
@@ -17,7 +17,7 @@ I started my blog on WordPress in 2015, migrated to Jekyll in 2018, and finally 
 
 "渚碧" is a transliteration of "Juby", which is an abbreviation of my name. It can be interpreted as "青い渚" in Japanese, meaning "azure shore".
 
--------------------
+---
 
 #### Me
 
@@ -34,7 +34,7 @@ Can't be bother to learn and think, not good at speech and not aggressive. I lov
 
 Often I drift in dreams, ride on the road, lost in music or books, and keep the lights on. Feel free to reach me via [email](mailto:hi@jubeny.com). 
 
--------------------
+---
 
 #### Channel
 
