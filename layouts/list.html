@@ -3,7 +3,7 @@
 <article class="post-container post-container-single">
   <section class="post">
     <h3>{{ .Params.year }}</h3>
-    <hr/>
+    <hr>
     <ul>
       <li>
         文章: <span class="post_num">{{ len .Pages }}</span> 篇
@@ -16,7 +16,7 @@
         字数: <span class="post_num">{{ $totalWords }}</span> 字
       </li>
     </ul>
-    <hr/>
+    <hr>
 
     <ul class="archive-year">
     {{- range .Pages.ByDate.Reverse }}
@@ -25,7 +25,7 @@
       </li>
     {{- end }}
     </ul>
-    <hr/>
+    <hr>
 
     {{- $years := .CurrentSection.Parent.Sections.ByTitle.Reverse }}
     {{- if gt (len $years) 0 }}

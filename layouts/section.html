@@ -3,7 +3,7 @@
 <article class="post-container post-container-single">
   <section class="post">
     <h3>统计</h3>
-    <hr/>
+    <hr>
     {{- $posts := where .Site.RegularPages "Type" "posts" }}
     <ul>
       <li>总文章: <span class="post_num">{{ len $posts }}</span> 篇</li>
@@ -13,7 +13,7 @@
       {{- end }}
       <li>总字数: <span class="post_num">{{ $totalWords }}</span> 字</li>
     </ul>
-    <hr/>
+    <hr>
 
     {{- $years := .Sections.ByTitle.Reverse }}
     {{- with index $years 0 }}
@@ -31,7 +31,7 @@
       <li>{{ .Date.Format "01-02" }} » <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{- end }}
     </ul>
-    <hr/>
+    <hr>
     {{- end }}
 
     {{- $otherYears := after 1 $years }}

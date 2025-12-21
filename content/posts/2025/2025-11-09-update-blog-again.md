@@ -42,7 +42,7 @@ slug: update-blog-again
   {% endfor %}
 </ol>
 </div>
-{% unless forloop.last %}<hr/>{% endunless %}
+{% unless forloop.last %}<hr>{% endunless %}
 {% endfor %}
 {% endraw %}
 ```

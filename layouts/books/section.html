@@ -6,7 +6,7 @@
     <h3 id="bookshelf-title" style="cursor: pointer;">
       书架 <span class="post_count">({{ len $library }})</span>
     </h3>
-    <hr/>
+    <hr>
 
     <div id="bookshelf-content" class="collapsed">
       <ul class="book-list">
@@ -21,7 +21,7 @@
 
     {{- $books := .Site.Data.books }}
     <h3>读书<span class="post_count">({{ len $books }})</span></h3>
-    <hr/>
+    <hr>
     {{- $years := .Sections.ByTitle.Reverse }}
     {{- $year := index $years 0 }}
     {{- with $year }}
@@ -36,7 +36,7 @@
       <li>{{ .title }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}</li>
       {{- end }}
     </ol>
-    <hr/>
+    <hr>
     {{- end }}
 
     {{- $otherYears := after 1 $years }}

@@ -7,7 +7,6 @@ categories:
 tags:
 - 影音
 - 好玩
-ad: true
 image: true
 slug: lyrics-of-the-beatles
 ---

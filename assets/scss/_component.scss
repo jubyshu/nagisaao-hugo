@@ -287,7 +287,7 @@
     margin: 0 0 2.2em 0;
   }
 
-  &__title {
+  &_title {
     margin-top: 5px;
     margin-bottom: .2em;
     font-size: 1.4em;
@@ -308,7 +308,7 @@
     display: inline-block;
   }
 
-  &__date {
+  &_date {
     background-size: 100% 100%;
     color: v.$meta-font-color;
     float: left;

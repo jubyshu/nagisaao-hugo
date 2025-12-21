@@ -5,7 +5,7 @@
     {{ if .Title -}}
     <h3>{{ .Title }}</h3>
     {{ end -}}
-    <hr/>
+    <hr>
     <ul>
       {{ $paginator := .Paginate .RegularPages 25 -}}
       {{ range $paginator.Pages -}}
