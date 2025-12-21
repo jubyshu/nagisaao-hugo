@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const backTop = document.querySelector("#back-top");
 
   if (backTop) {
-    backTop.style.display = "none";
+    backTop.style.visibility = "hidden";
 
     window.addEventListener("scroll", () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      backTop.style.display = scrollTop > 150 ? "block" : "none";
+      backTop.style.visibility = scrollTop > 150 ? "visible" : "hidden";
     }, { passive: true });
 
     backTop.addEventListener("click", (e) => {
