@@ -35,14 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 2. Back to Top
-  const backTop = document.querySelector("#back-top");
+  const backTop = document.getElementById("back-top");
 
   if (backTop) {
-    backTop.style.visibility = "hidden";
-
     window.addEventListener("scroll", () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      backTop.style.visibility = scrollTop > 150 ? "visible" : "hidden";
+      backTop.classList.toggle("is-visible", scrollTop > 150);
     }, { passive: true });
 
     backTop.addEventListener("click", (e) => {
@@ -88,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 6. Post TOC
-  const toc = document.querySelector("#TableOfContents");
+  const toc = document.getElementById("TableOfContents");
   const tocWrapper = document.querySelector(".content-wrapper_inner");
   const headers = document.querySelectorAll(".post h2, .post h3, .post h4, .post h5");
   const tocLinks = document.querySelectorAll("#TableOfContents a");
@@ -98,13 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const clientHeight = window.innerHeight;
       const clientWidth = document.documentElement.clientWidth;
       const leftMargin = (clientWidth - tocWrapper.clientWidth) / 2 - toc.clientWidth - 50;
+      const showTocCondition = toc.clientHeight < clientHeight * 0.6 && leftMargin >= 50;
 
-      if (toc.clientHeight < clientHeight * 0.6 && leftMargin >= 50) {
-        toc.style.visibility = "visible";
-        toc.style.display = "block"; 
-      } else {
-        toc.style.visibility = "hidden";
-      }
+      toc.classList.toggle("is-visible", showTocCondition);
     };
 
     let activeLink = null;

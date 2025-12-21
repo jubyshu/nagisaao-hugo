@@ -367,9 +367,9 @@
       text-align: center;
 
       &::before {
-        content: "...";
+        content: "•••";
         display: inline-block;
-        font-size: 1.5em;
+        font-size: 1.2em;
         letter-spacing: 0.5em;
         margin: 0.5em auto;
         color: v.$sub-link-color;
@@ -453,17 +453,17 @@
     color: v.$sub-font-color;
   }
 
-  &__page-number {
+  &_page-number {
     margin: 0;
     font-size: .8em;
     color: v.$sub-font-color;
   }
 
-  &__newer {
+  &_newer {
     margin-right: 1em;
   }
 
-  &__older {
+  &_older {
     margin-left: 1em;
   }
 }

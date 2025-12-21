@@ -71,6 +71,15 @@
 // Back Top Button
 // -------------------------------------
 #back-top {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   a {
     position: fixed;
     bottom: 30px;
@@ -83,7 +92,6 @@
     height: 36px;
     width: 36px;
     background-color: v.$top-btn-bg-color;
-    transition: opacity 0.3s ease;
   }
 }
 
@@ -309,7 +317,7 @@ sup a {
 // Table of Contents 
 // -------------------------------------
 #TableOfContents {
-  visibility: hidden;
+  opacity: 0;
   position: fixed;
   display: block;
   right: 50px;
@@ -320,6 +328,11 @@ sup a {
   border-radius: 3px;
   padding: 5px;
   z-index: 100;
+  transition: opacity 0.3s ease;
+
+  &.is-visible {
+    opacity: 1;
+  }
 
   &::before {
     display: block;
