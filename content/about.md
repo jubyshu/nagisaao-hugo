@@ -7,7 +7,7 @@ description: I started my blog on WordPress in 2015 and migrated it to Jekyll in
 
 ### 关于
 
-`Update at 2025-12-14.`
+`Update at 2025-12-21.`
 
 ---
 
@@ -33,11 +33,3 @@ My life is as simple as this. There's nothing to sell, nothing I'd like to pursu
 Can't be bother to learn and think, not good at speech and not aggressive. I love literature, heavy mental music, mysterious universe and FOSS, and dislike many many things.
 
 Often I drift in dreams, ride on the road, lost in music or books, and keep the lights on. Feel free to reach me via [email](mailto:hi@jubeny.com). 
-
----
-
-#### Channel
-
-Telegram: [VegeRose](https://t.me/vegerose), topic-free sharing.
-
-Substack: [AoiNagisa](https://jubeny.substack.com/), irregular blog backups.
