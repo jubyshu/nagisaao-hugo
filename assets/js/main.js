@@ -5,28 +5,12 @@ window.showAvifSign = function(e) {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 0. Initial Cover Image
-  (function initCoverImage() {
-    const theme = document.documentElement.getAttribute("data-theme");
-    const img = document.querySelector(".bg-cover");
-    if (!img || !theme) return;
-    if (theme === "dark" && !img.src.includes("cover-dark")) {
-      img.src = "/images/cover-dark.webp";
-    }
-  })();
-
   // 1. Theme Switch
   const btn = document.getElementById("theme-toggle");
   const KEY = "theme";
 
   function applyTheme(t) {
     document.documentElement.setAttribute("data-theme", t);
-    const img = document.querySelector(".bg-cover");
-    if (img) {
-      img.src = t === "dark"
-        ? "/images/cover-dark.webp"
-        : "/images/cover-light.webp";
-    }
   }
 
   function safeSave(t) {

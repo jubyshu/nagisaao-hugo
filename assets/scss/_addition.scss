@@ -303,7 +303,7 @@ sup a {
   &::before {
     display: block;
     content: "";
-    border-top: 0.6px solid v.$border-color;
+    border-top: 1px solid v.$border-color;
     width: 5%;
     margin-bottom: 7px;
   }
