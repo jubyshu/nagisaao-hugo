@@ -124,8 +124,8 @@
   justify-content: center;
   width: 100%;
   height: 180px;
-  // background: url("/images/cover.svg") no-repeat center center;
-  // background-size: cover;
+  background: v.$cover-image no-repeat center center;
+  background-size: cover;
 
   @media (max-width: 960px) {
     height: 180px;
