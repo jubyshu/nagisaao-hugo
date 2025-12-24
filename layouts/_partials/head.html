@@ -30,8 +30,8 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/images/favicon.ico" type="image/x-icon">
-  <link rel="preload" as="image" href="/images/cover-light.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="/images/cover-dark.webp" fetchpriority="high">
+  <link href="/images/cover-light.webp" fetchpriority="high" decoding="async" loading="eager">
+  <link href="/images/cover-dark.webp" fetchpriority="high" decoding="async" loading="eager">
   {{- if .Params.image }}
   <link rel="stylesheet" href="https://{{ .Site.Params.cdn }}/npm/@fancyapps/ui@4.0/dist/fancybox.css">
   {{- end }}
