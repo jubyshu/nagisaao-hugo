@@ -302,14 +302,8 @@ sup a {
 
   &::before {
     display: block;
-    content: "";
-    border-top: 1px solid v.$border-color;
-    width: 5%;
-    margin-bottom: 7px;
-  }
-
-  a {
-    text-decoration: none;
+    content: "____";
+    margin-bottom: 10px;
   }
 }
 
@@ -429,5 +423,33 @@ summary {
 
   &::-webkit-details-marker {
     display: none;
+  }
+}
+
+// -------------------------------------
+// Table
+// -------------------------------------
+table {
+  color: v.$sub-font-color;
+  font-size: .9em;
+  text-align: center;
+  line-height: 30px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid v.$border-color;
+  width: 75%;
+  margin: 25px auto;
+
+  thead tr:nth-child(odd) {
+    background: v.$quote-bg-color;
+  }
+
+  tbody tr:nth-child(even) {
+    background: v.$quote-bg-color;
+  }
+
+  th, td {
+    border: 1px solid v.$border-color;
+    text-align: center;
   }
 }
