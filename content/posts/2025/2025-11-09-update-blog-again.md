@@ -26,7 +26,6 @@ slug: update-blog-again
 重构了[读书](https://jubeny.com/book/)页面的读书列表。之前的方式是纯手工添加书目，改完后虽亦需手工维护，但实现了样式与数据的解耦。将阅读的书目保存在csv文件中，再通过liquid模板循环读取，从维护角度看并没有优化，但结构上却是好了。代码是ChatGPT写的，略加调整便可使用。
 
 ```liquid
-{% raw %}
 {% assign years = site.data.books | map: 'year' | uniq %}
 {% for year in years %}
 ### {{ year }} <span class="post_count">({{ site.data.books | where: "year", year | size }})</span>
@@ -44,7 +43,6 @@ slug: update-blog-again
 </div>
 {% unless forloop.last %}<hr>{% endunless %}
 {% endfor %}
-{% endraw %}
 ```
 
 对于这种书籍页面，更优的方式应该是调用现有API，省去自己维护列表的麻烦。不过书目的更新并不是高频操作，有些书在网站上也查不到，自我维护倒也无妨。

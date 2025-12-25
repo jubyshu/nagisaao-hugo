@@ -6,156 +6,87 @@ html, body, ul, ol, li {
 }
 
 html {
-  height: 100%;
-  max-height: 100%;
   background-color: v.$body-bg-color;
 }
 
 body {
-  height: 100%;
-  width: 100%;
-  line-height: 1;
+  min-height: 100vh;
+  min-height: 100svh;
   font-family: v.$body-font;
-  font-size: 16px;
   color: v.$font-color;
-  letter-spacing: 0.03em;
-  font-weight: normal;
-  background-color: v.$body-bg-color;
-
-  &::before,
-  &::after {
-    content: "";
-    display: table;
-  }
-
-  &::after {
-    clear: both;
-  }
+  line-height: 1.6;
+  letter-spacing: 0.03rem;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5 {
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  font-weight: normal;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+  font-weight: 500;
 }
 
 h1 {
   margin-top: 0;
-  font-size: 1.6em;
-  letter-spacing: .05em;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
 }
 
 h2 {
-  font-size: 1.4em;
+  font-size: 1.4rem;
 }
 
 h3 {
-  position: relative;
-  font-size: 1.25em;
-  font-weight: bold;
+  font-size: 1.25rem;
 }
 
 h4 {
-  font-size: 1.1em;
-  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 h5 {
-  font-size: 1.05em;
-  font-weight: bold;
+  font-size: 1.05rem;
 }
 
 p {
-  margin: 10px 0;
-  line-height: 1.7em;
-
-  a {
-    margin: 0 4px;
-  }
+  margin: 0.75rem 0;
+  line-height: 1.7;
 }
 
 a {
   color: v.$link-color;
   text-decoration: none;
+  transition: color 0.2s ease; 
 
   &:hover {
-    color: v.$hover-color;
-    transition: color 0.3s ease; 
+    color: v.$hover-color; 
   }
 }
 
 strong {
-  font-weight: bold;
-  color: v.$title-color;
-}
-
-em {
-  font-style: italic;
-}
-
-q {
-  quotes: none;
-  border-bottom: 1px dashed v.$link-color;
+  font-weight: 500;
 }
 
 hr {
   border: none;
 }
 
-blockquote {
-  font-family: v.$quote-font;
-  font-weight: normal;
-  font-size: 1em;
-  color: v.$sub-font-color;
-  margin: 15px 0;
-  background: v.$quote-bg-color;
-  border-radius: 5px;
-
-  p {
-    padding: 0 1em;
-
-    &:first-child {
-      padding-top: 1em;
-    }
-
-    &:last-child {
-      padding-bottom: 1em;
-    }
-  }
+ol,
+ul {
+  margin: 1.2rem 0;
+  padding-left: 1.5rem;
 }
 
-code {
-  font-size: 0.9em;
-  padding: 0.15em 0.35em;
-  border-radius: 6px;
-  background: v.$code-bg-color;
-  color: v.$code-font-color;
-  border: 1px solid v.$border-color;
-  white-space: normal;
-  word-break: break-word;
-  line-height: 1;
-  box-decoration-break: clone;
+li {
+  margin-bottom: 0.4rem;
 }
 
-ol, ul {
-  margin: 0 0 1.3em 2em;
-
-  li {
-    margin: 0 0 .2em 0;
-    line-height: 1.6em;
-
-    p {
-      margin: 0 0 .2em 0;
-      line-height: 1.6em;
-      padding-left: 0;
-    }
-  }
-
-  ol, ul {
-    margin: .1em 0 .2em 2em;
-  }
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin: 0.4rem 0;
+  padding-left: 1.5rem;
 }
 
 ol { 
@@ -163,5 +94,34 @@ ol {
 }
 
 ul { 
+  list-style-type: disc;
+}
+
+ul ul {
   list-style-type: circle;
+}
+
+blockquote {
+  font-family: v.$quote-font;
+  color: v.$sub-font-color;
+  background: v.$quote-bg-color;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.35rem;
+
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+code {
+  font-size: 0.9rem;
+  padding: 0.15rem 0.35rem;
+  background: v.$code-bg-color;
+  color: v.$code-font-color;
+  border: 1px solid v.$border-color;
+  border-radius: 0.3rem;
+  white-space: break-spaces;
+  overflow-wrap: anywhere;
+  box-decoration-break: clone;
 }
