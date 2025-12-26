@@ -18,7 +18,7 @@
     </ul>
     <hr>
 
-    <ul class="archive-year">
+    <ul class="archive-post-list">
     {{- range .Pages.ByDate.Reverse }}
       <li>
         {{ .Date.Format "01-02" }} » <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -30,7 +30,7 @@
     {{- $years := .CurrentSection.Parent.Sections.ByTitle.Reverse }}
     {{- if gt (len $years) 0 }}
     <h3>More</h3>
-    <ul class="archive-years more">
+    <ul class="archive-years">
     {{- range $years }}
       {{- if ne .RelPermalink $.RelPermalink }}
       <li><a href="{{ .RelPermalink }}">{{ .Params.year }}</a></li>

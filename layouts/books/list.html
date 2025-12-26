@@ -21,7 +21,7 @@
 
     {{- $years := .CurrentSection.Parent.Sections.ByTitle.Reverse }}
     <h3>More</h3>
-    <ul class="archive-years more">
+    <ul class="archive-years">
     {{- range $years }}
       {{- if ne .RelPermalink $.RelPermalink }}
       <li><a href="{{ .RelPermalink }}">{{ .Params.year }}</a></li>

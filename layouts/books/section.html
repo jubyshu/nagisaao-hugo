@@ -31,7 +31,7 @@
     <ul>
       <li>已读: <span class="post_num">{{ len $booksOfYear }}</span> 本</li>
     </ul>
-    <ol class="book-list">
+    <ol class="read-book-list">
       {{- range $booksOfYear }}
       <li>{{ .title }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}</li>
       {{- end }}
@@ -42,7 +42,7 @@
     {{- $otherYears := after 1 $years }}
     {{- if gt (len $otherYears) 0 }}
     <h3>More</h3>
-    <ul class="archive-years more">
+    <ul class="archive-years">
     {{- range $otherYears }}
       <li><a href="{{ .RelPermalink }}">{{ .Params.year }}</a></li>
     {{- end }}

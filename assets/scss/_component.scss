@@ -216,10 +216,6 @@
     border-top: 1px solid v.$border-color;
   }
 
-  li {
-    margin: 0.5rem auto;
-  }
-
   &.not_page {
     hr {
       border-top: none;
@@ -251,6 +247,10 @@
       padding-bottom: 0.4rem;
       margin-top: 1.5rem;
       border-bottom: 1px solid v.$border-color;
+    }
+
+    li {
+      margin: 0.25rem auto;
     }
   }
 }

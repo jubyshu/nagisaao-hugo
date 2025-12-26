@@ -60,7 +60,13 @@ if (backTop) {
   });
 }
 
-// 3. Bookshelf Collapsible
+// 3. Calculate Build Days
+const dateBegin = new Date("2015/01/03 23:15:15");
+const dateEnd = new Date();
+const dayDiff = Math.floor((dateEnd - dateBegin) / (1000 * 60 * 60 * 24));
+document.getElementById("runtime").textContent = `${dayDiff} days`;
+
+// 4. Bookshelf Collapsible
 const bookshelfTitle = document.getElementById("bookshelf-title");
 const bookshelfContent = document.getElementById("bookshelf-content");
 
@@ -70,47 +76,60 @@ if (bookshelfTitle && bookshelfContent) {
   });
 }
 
-// 5. Calculate Build Days
-const dateBegin = new Date("2015/01/03 23:15:15");
-const dateEnd = new Date();
-
-if (!isNaN(dateBegin)) {
-  const dayDiff = Math.floor((dateEnd - dateBegin) / (1000 * 60 * 60 * 24));
-  document.getElementById("runtime").textContent = `${dayDiff} days`;
-}
-
-// 6. Post TOC
+// 5. Post TOC
 const toc = document.getElementById("TableOfContents");
-const tocWrapper = document.querySelector(".content-wrapper__inner");
+const tocWrapper = document.querySelector(".content-wrapper");
 const headers = document.querySelectorAll(".post h2, .post h3, .post h4, .post h5");
 const tocLinks = document.querySelectorAll("#TableOfContents a");
 
 if (toc && tocWrapper && headers.length > 0) {
+  
+  let isTicking = false;
+
   const toggleTocVisibility = () => {
     const clientHeight = window.innerHeight;
-    const clientWidth = document.documentElement.clientWidth;
-    const leftMargin = (clientWidth - tocWrapper.clientWidth) / 2 - toc.clientWidth - 50;
-    const showTocCondition = toc.clientHeight < clientHeight * 0.6 && leftMargin >= 50;
+    const rootClientWidth = document.documentElement.clientWidth;
+    const wrapperWidth = tocWrapper.clientWidth;
+    const tocWidth = toc.clientWidth;
+    const tocHeight = toc.clientHeight;
+    const leftMargin = (rootClientWidth - wrapperWidth) / 2 - tocWidth - 50;
+    const shouldShow = tocHeight < clientHeight * 0.6 && leftMargin >= 50;
 
-    toc.classList.toggle("is-visible", showTocCondition);
+    const isCurrentlyVisible = toc.classList.contains("is-visible");
+    if (shouldShow !== isCurrentlyVisible) {
+      toc.classList.toggle("is-visible", shouldShow);
+    }
+    
+    isTicking = false;
+  };
+
+  const onResize = () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(toggleTocVisibility);
+      isTicking = true;
+    }
   };
 
   let activeLink = null;
+  
   const observer = new IntersectionObserver((entries) => {
     const visibleEntries = entries.filter(entry => entry.isIntersecting);
-    
+
     if (visibleEntries.length > 0) {
       const highestEntry = visibleEntries.reduce((prev, curr) => {
         return (prev.boundingClientRect.top < curr.boundingClientRect.top) ? prev : curr;
       });
 
       const id = highestEntry.target.id;
-      const newActiveLink = toc.querySelector(`a[href="#${CSS.escape(id)}"]`);
+      const safeId = CSS.escape(id);
+      const newActiveLink = toc.querySelector(`a[href="#${safeId}"]`);
 
       if (newActiveLink && newActiveLink !== activeLink) {
-        tocLinks.forEach(link => link.classList.remove("active"));
-        newActiveLink.classList.add("active");
-        activeLink = newActiveLink;
+        window.requestAnimationFrame(() => {
+          if (activeLink) activeLink.classList.remove("active");
+          newActiveLink.classList.add("active");
+          activeLink = newActiveLink;
+        });
       }
     }
   }, {
@@ -123,7 +142,8 @@ if (toc && tocWrapper && headers.length > 0) {
       observer.observe(header);
     }
   });
+
+  window.addEventListener("resize", onResize);
   
-  window.addEventListener("resize", toggleTocVisibility);
   toggleTocVisibility();
 }

@@ -7,7 +7,7 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  z-index: 20;
+  z-index: 10;
   display: inline-grid;
   place-items: center;
   width: 40px;
@@ -18,7 +18,7 @@
   cursor: pointer;
   transition: background-color .15s ease, transform .15s ease;
 
-  @media (max-width: 600px) {
+  @media (max-width: 779px) {
     top: 10px;
     right: 10px;
     width: 30px;
@@ -121,12 +121,17 @@
 // -------------------------------------
 // More Years & Tag List
 // -------------------------------------
-.archive-years.more, .taxonomy-list {
+.archive-post-list li,
+.read-book-list li {
+  margin: 0.25rem auto;
+}
+
+.archive-years, 
+.taxonomy-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
   justify-content: flex-start;
-  flex-wrap: wrap;
   padding: 0;
   margin: 1rem 0.5rem;
   list-style: none;
@@ -311,6 +316,7 @@ sup a {
 // -------------------------------------
 #TableOfContents {
   opacity: 0;
+  pointer-events: none;
   position: fixed;
   display: block;
   right: 50px;
@@ -325,6 +331,7 @@ sup a {
 
   &.is-visible {
     opacity: 1;
+    pointer-events: auto;
   }
 
   &::before {
