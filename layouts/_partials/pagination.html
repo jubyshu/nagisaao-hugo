@@ -1,11 +1,11 @@
 {{- if gt .Paginator.TotalPages 1 }}
 <nav class="pagination" role="navigation">
   {{- with .Paginator.Prev }}
-  <a class="pagination_newer paginate-btn" href="{{ .URL }}">← 最近</a>
+  <a class="pagination__newer paginate-btn" href="{{ .URL }}">← 最近</a>
   {{- end }}
-  <span class="pagination_page-number">{{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}</span>
+  <span class="pagination__page-number">{{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}</span>
   {{- with .Paginator.Next }}
-  <a class="pagination_older paginate-btn" href="{{ .URL }}">更早 →</a>
+  <a class="pagination__older paginate-btn" href="{{ .URL }}">更早 →</a>
   {{- end }}
 </nav>
 {{- end }}

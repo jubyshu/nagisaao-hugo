@@ -6,14 +6,14 @@
     {{- $published := .Date }}
     {{- $updated := .Lastmod }}
     <div class="post-meta">
-      <time datetime='{{ $published.Format "2006-01-02T15:04:05Z07:00" }}' itemprop="datePublished" class="post-meta_date">
+      <time datetime='{{ $published.Format "2006-01-02T15:04:05Z07:00" }}' itemprop="datePublished" class="post-meta__date">
         {{ $published.Format "2006-01-02" }}
       </time>
       /
-      <span>{{ .WordCount }} words</span>
+      <span>{{ .WordCount }} w</span>
       {{- if ne $published $updated }}
       /
-      <time datetime='{{ $updated.Format "2006-01-02T15:04:05Z07:00" }}' itemprop="dateUpdated" class="post-meta_date">
+      <time datetime='{{ $updated.Format "2006-01-02T15:04:05Z07:00" }}' itemprop="dateUpdated" class="post-meta__date">
       {{- if eq ($published.Format "2006-01-02") ($updated.Format "2006-01-02") }}
         upd. {{ $updated.Format "15:04:05" }}
       {{- else }}

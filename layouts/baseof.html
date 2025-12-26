@@ -4,12 +4,10 @@
   <body>
     <div class="container">
       {{- partial "panel.html" . }}
-      <div class="content-wrapper">
-        <main class="content-wrapper_inner" role="main">
-          {{ block "main" . }}{{ end }}
-        </main>
-        {{- partial "footer.html" . }}
-      </div>
+      <main class="content-wrapper" role="main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{- partial "footer.html" . }}
     </div>
 
     <div id="back-top">

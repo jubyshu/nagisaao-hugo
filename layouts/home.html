@@ -21,18 +21,18 @@
   <ol class="post-list">
     {{- range $paginator.Pages }}
     <li>
-      <h2 class="post-list_title post-title">
+      <h2 class="post-list__title post-title">
         <a href="{{ .RelPermalink }}" title="访问 {{ .Title }}">{{ .Title }}</a>
       </h2>
       <div class="post-list__meta">
-        <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' class="post-list_date">
+        <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' class="post-list__date">
           {{ .Date.Format "2006-01-02" }}
         </time>
       </div>
-      <p class="excerpt">
+      <p class="post-list__excerpt">
         {{ .Summary | plainify | truncate 100 }}...
       </p>
-      <hr class="post-list_divider">
+      <hr class="post-list__divider">
     </li>
     {{- end }}
   </ol>

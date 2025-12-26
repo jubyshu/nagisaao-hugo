@@ -18,11 +18,13 @@
     <hr>
     {{- partial "pagination.html" . }}
 
+    <div class="pagination">
     {{- if eq .Data.Plural "tags" }}
-    <p><a href="/tags/">查看更多标签 →</a></p>
+      <p class="paginate-btn"><a href="/tags/">查看更多标签 →</a></p>
     {{- else }}
-    <p><a href="/categories/">查看更多分类 →</a></p>
+      <p class="paginate-btn"><a href="/categories/">查看更多分类 →</a></p>
     {{- end }}
+    </div>
   </section>
 </article>
 
