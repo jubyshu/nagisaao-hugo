@@ -95,7 +95,7 @@
 
     &:hover {
       background: v.$hover-color;
-      border-radius: 0.4rem;
+      border-radius: 6px;
       color: #fff;
     }
 
@@ -203,7 +203,7 @@
     display: block;
     max-width: 100%;
     margin: 1rem auto;
-    border-radius: 0.25rem;
+    border-radius: 6px;
   }
 
   pre {
