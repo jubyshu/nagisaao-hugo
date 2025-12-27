@@ -6,7 +6,7 @@
 .container {
   max-width: 780px;
   z-index: 100;
-  margin: 60px auto;
+  margin: 4rem auto;
   background-color: v.$page-bg-color;
 
   @media (max-width: 779px) {
@@ -16,8 +16,8 @@
 
 .content-wrapper {
   display: block;
-  margin: 40px auto auto;
-  padding: 0 30px;
+  margin-top: 2.5rem;
+  padding: 0 1.8rem;
 
   p {
     text-align: justify;
@@ -26,7 +26,7 @@
   }
 
   @media (max-width: 779px) {
-    padding: 0 3%;
+    padding: 0 1.2rem;
   }
 }
 
@@ -54,9 +54,9 @@
 }
 
 .panel-title {
-  margin: 1em 0 0.5em;
-  font-size: 1.8em;
-  letter-spacing: 0.2em;
+  margin: 1rem 0 0.5rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.2rem;
 }
 
 // -------------------------------------
@@ -66,7 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
+  min-height: 2.5rem;
   color: v.$sub-font-color;
   margin: 0.5rem 0;
   padding: 0.25rem 0;
@@ -95,7 +95,7 @@
 
     &:hover {
       background: v.$hover-color;
-      border-radius: 7px;
+      border-radius: 0.4rem;
       color: #fff;
     }
 
@@ -145,7 +145,7 @@
   padding: 0;
   list-style: none;
   text-align: left;
-  margin-top: 25px;
+  margin-top: 1.6rem;
 
   li {
     margin-bottom: 2.25rem;
@@ -271,11 +271,8 @@
     padding: 0.6rem 0;
     color: v.$meta-font-color;
     
-    &:hover,
-    &:focus {
-      > span {
-        color: v.$hover-color;
-      }
+    &:hover > span{
+      color: v.$hover-color;
     }
   }
 }
@@ -300,10 +297,14 @@
   display: block;
   margin-bottom: 1.8rem;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.9rem;
 
   .paginate-btn {
     color: v.$sub-font-color;
+
+    &__more {
+      text-align: center;
+    }
   }
 
   &__page-number {

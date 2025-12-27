@@ -34,7 +34,7 @@ const backTop = document.getElementById("back-top");
 if (backTop) {
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    backTop.classList.toggle("is-visible", scrollTop > 150);
+    backTop.classList.toggle("visible", scrollTop > 150);
   }, { passive: true });
 
   backTop.addEventListener("click", (e) => {
@@ -72,7 +72,7 @@ const bookshelfContent = document.getElementById("bookshelf-content");
 
 if (bookshelfTitle && bookshelfContent) {
   bookshelfTitle.addEventListener("click", () => {
-    bookshelfContent.classList.toggle("is-open");
+    bookshelfContent.classList.toggle("expand");
   });
 }
 
@@ -95,9 +95,9 @@ if (toc && tocWrapper && headers.length > 0) {
     const leftMargin = (rootClientWidth - wrapperWidth) / 2 - tocWidth - 50;
     const shouldShow = tocHeight < clientHeight * 0.6 && leftMargin >= 50;
 
-    const isCurrentlyVisible = toc.classList.contains("is-visible");
+    const isCurrentlyVisible = toc.classList.contains("visible");
     if (shouldShow !== isCurrentlyVisible) {
-      toc.classList.toggle("is-visible", shouldShow);
+      toc.classList.toggle("visible", shouldShow);
     }
     
     isTicking = false;

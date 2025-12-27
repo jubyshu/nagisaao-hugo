@@ -16,7 +16,7 @@
   background: v.$theme-btn-bg-color;
   border: none;
   cursor: pointer;
-  transition: background-color .15s ease, transform .15s ease;
+  transition: background-color .25s ease, transform .25s ease;
 
   @media (max-width: 779px) {
     top: 10px;
@@ -30,14 +30,14 @@
       height: 15px;
     }
   }
-}
 
-.theme-toggle:hover {
-  background: v.$theme-btn-hover-color;
-}
+  &:hover {
+    background: v.$theme-btn-hover-color;
+  }
 
-.theme-toggle:active {
-  transform: scale(.94);
+  &:active {
+    transform: scale(.94);
+  }
 }
 
 .icon {
@@ -73,9 +73,9 @@
 #back-top {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 
-  &.is-visible {
+  &.visible {
     opacity: 1;
     pointer-events: auto;
   }
@@ -99,10 +99,10 @@
   display: block;
   width: 10px;
   height: 10px;
+  margin-top: 5px;
   border-top: 2px solid v.$top-arrow-color;
   border-right: 2px solid v.$top-arrow-color;
   transform: rotate(-45deg);
-  margin-top: 2px;
 }
 
 // -------------------------------------
@@ -110,8 +110,7 @@
 // -------------------------------------
 .post_count {
   color: v.$sub-font-color;
-  font-size: 0.8em;
-  vertical-align: text-bottom;
+  font-size: 0.85rem;
 }
 
 .post_num {
@@ -153,7 +152,7 @@
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 779px) {
     .aa-Autocomplete button {
       background: #21262d;
       caret-color: #58a6ff;
@@ -169,8 +168,8 @@
   position: relative;
   display: none;
   color: v.$sub-link-color;
-  margin-bottom: 1em;
-  font-size: 0.9em;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
   text-align: center;
 }
 
@@ -179,11 +178,11 @@
 // -------------------------------------
 #bookshelf-content {
   overflow: hidden;
-  transition: transform .35s ease, opacity .25s ease;
+  transition: transform .25s ease, opacity .25s ease;
   max-height: 0;
   opacity: 0;
 
-  &.is-open {
+  &.expand {
     max-height: 3000px;
     opacity: 1;
   }
@@ -192,7 +191,7 @@
 // -------------------------------------
 // Bookshelf List
 // -------------------------------------
-ul.book-list {
+.book-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -229,7 +228,7 @@ ul.book-list {
 
   #dsqjs-msg {
     color: v.$sub-font-color;
-    line-height: 1.6em;
+    line-height: 1.6;
     margin-bottom: 10px;
   }
 
@@ -274,30 +273,27 @@ ul.book-list {
 // Footnotes
 // -------------------------------------
 sup a {
-  font-size: 0.7em;
-  line-height: 0;
-  vertical-align: text-top;
+  font-size: 0.75em;
+  line-height: 1;
   position: relative;
-  bottom: -0.1em;
+  top: -0.35em;
   text-decoration: none;
-  border-bottom: none !important;
+  border-bottom: 0 !important;
 
   &::before {
     content: "[";
-    color: v.$link-color;
   }
 
   &::after {
     content: "]";
-    color: v.$link-color;
   }
 }
 
 .footnotes {
-  font-size: 0.8em;
+  font-size: 0.85em;
   color: #999;
-  margin-top: 25px;
-  padding-top: 10px;
+  margin-top: 2em;
+  padding-top: 1em;
 
   hr {
     display: none;
@@ -305,8 +301,35 @@ sup a {
 
   &::before {
     display: block;
-    content: "____";
-    margin-bottom: 10px;
+    content: "";
+    width: 2rem;
+    height: 2px;
+    background-color: v.$border-color;
+  }
+}
+
+// -------------------------------------
+// Post Tags
+// -------------------------------------
+.post-tags {
+  font-size: .85em;
+  margin-top: 2.5em;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    color: v.$sub-link-color;
+
+    &:hover {
+      color: v.$hover-color;
+    }
   }
 }
 
@@ -317,7 +340,6 @@ sup a {
   opacity: 0;
   pointer-events: none;
   position: fixed;
-  display: block;
   right: 50px;
   top: 170px;
   width: 210px;
@@ -326,9 +348,9 @@ sup a {
   border-radius: 3px;
   padding: 5px;
   z-index: 100;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 
-  &.is-visible {
+  &.visible {
     opacity: 1;
     pointer-events: auto;
   }
@@ -342,57 +364,34 @@ sup a {
 
   ul {
     margin: 0;
-    list-style-type: none;
     padding: 0;
-    > li > ul {
-       margin-left: 0;
-
-       li {
-        margin: auto 5px;
-        list-style-type: none;
-
-        a {
-          color: v.$sub-link-color;
-          font-size: 0.9em;
-          display: inline-block;
-          text-decoration: none;
-          border-bottom: hidden !important;
-          
-          &.active,
-          &:hover {
-            color: v.$hover-color;
-            font-weight: bold;
-          }
-        }
-      }
-    }
-  } 
-}
-
-// -------------------------------------
-// Post Tags
-// -------------------------------------
-.post-tags {
-  font-size: .85em;
-  margin-top: 2em;
-
-  ul {
-    margin: 0;
-    padding: 0;
-
-    li {
-      display: inline;
-      list-style: none;
-      margin-right: 1em;
-    }
+    list-style: none;
   }
-  a {
-    color: v.$sub-link-color;
-    border-bottom: 1px solid v.$sub-link-color;
 
-    &:hover {
+  li {
+    margin: 0.2em 0;
+  }
+
+  a {
+    font-size: 0.9em;
+    color: v.$sub-link-color;
+    text-decoration: none;
+    border-bottom: 0;
+
+    &:hover,
+    &.active {
       color: v.$hover-color;
     }
+
+    &:focus-visible {
+      outline: 1px solid currentColor;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+
+  ul ul {
+    margin-left: 0.8em;
   }
 }
 
@@ -400,61 +399,62 @@ sup a {
 // Details
 // -------------------------------------
 details {
-  p {
+  > :not(summary) {
     font-family: v.$quote-font;
     color: v.$sub-font-color;
     padding: 1em;
     border-radius: 5px;
     background: v.$quote-bg-color;
   }
-
-  &[open] > summary {
-    border-bottom: none;
-  }
 }
 
 summary {
-  display: inline-block;
-  margin: 3px auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
+  margin: 0.3em 0;
   cursor: pointer;
   color: v.$sub-link-color;
-  border-bottom: 1px solid v.$link-color;
+  border-bottom: 1px solid currentColor;
   list-style: none;
 
   &::after {
     content: v.$sum-image;
-    padding-left: 2px;
+    display: inline-block;
+    transition: transform 0.25s ease;
   }
+}
 
-  &::-webkit-details-marker {
-    display: none;
-  }
+details[open] summary {
+  border-bottom-color: transparent;
 }
 
 // -------------------------------------
 // Table
 // -------------------------------------
 table {
-  color: v.$sub-font-color;
-  font-size: .9em;
-  text-align: center;
-  line-height: 30px;
+  width: 100%;
+  margin: 2em auto;
   border-collapse: collapse;
-  border-spacing: 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: v.$sub-font-color;
   border: 1px solid v.$border-color;
-  width: 75%;
-  margin: 25px auto;
+}
 
-  thead tr:nth-child(odd) {
-    background: v.$quote-bg-color;
-  }
+thead th {
+  background: v.$quote-bg-color;
+  font-weight: 600;
+  text-align: left;
+}
 
-  tbody tr:nth-child(even) {
-    background: v.$quote-bg-color;
-  }
+tbody tr:nth-child(even) {
+  background: v.$quote-bg-color;
+}
 
-  th, td {
-    border: 1px solid v.$border-color;
-    text-align: center;
-  }
+th,
+td {
+  padding: 0.5em 0.75em;
+  border: 1px solid v.$border-color;
+  vertical-align: top;
 }

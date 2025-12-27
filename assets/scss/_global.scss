@@ -10,7 +10,6 @@ html {
 }
 
 body {
-  min-height: 100vh;
   min-height: 100svh;
   font-family: v.$body-font;
   color: v.$font-color;
@@ -55,7 +54,7 @@ p {
 a {
   color: v.$link-color;
   text-decoration: none;
-  transition: color 0.2s ease; 
+  transition: color 0.25s ease; 
 
   &:hover {
     color: v.$hover-color; 
