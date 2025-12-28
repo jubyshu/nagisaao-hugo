@@ -13,7 +13,7 @@
         {{- range $library }}
           <li title="{{ .title }} by {{ .author }}">
             <a href="https://neodb.social/search?q={{ .title | urlquery }}" target="_blank" rel="noopener">
-              <img src='{{ $.Site.Params.cloudinary }}/blog/books/{{ default "default" .ISBN }}.jpg' alt="{{ .title }}" loading="lazy" /></a>
+              <img src='{{ $.Site.Params.cloudinary }}/blog/books/{{ default "default" .isbn }}.jpg' alt="{{ .title }}" loading="lazy" /></a>
           </li>
         {{- end }}
       </ul>
