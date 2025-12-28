@@ -1,4 +1,5 @@
 @use "variable" as v;
+@use "mixin" as m;
 
 // -------------------------------------
 // Container
@@ -17,7 +18,7 @@
 .content-wrapper {
   display: block;
   margin-top: 2.5rem;
-  padding: 0 1.8rem;
+  padding: 0 1.8em;
 
   p {
     text-align: justify;
@@ -26,7 +27,7 @@
   }
 
   @media (max-width: 779px) {
-    padding: 0 1.2rem;
+    padding: 0 1.2em;
   }
 }
 
@@ -39,10 +40,8 @@
 }
 
 .panel-main {
-  display: flex;
+  @include m.flex-center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   height: 180px;
   background: v.$cover-image no-repeat center / cover;
@@ -55,30 +54,24 @@
 
 .panel-title {
   margin: 1rem 0 0.5rem;
-  font-size: 1.8rem;
-  letter-spacing: 0.2rem;
+  font-size: 1.8em;
+  letter-spacing: 0.2em;
 }
 
 // -------------------------------------
 // Navigation
 // -------------------------------------
 .cover-navigation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include m.flex-center;
   min-height: 2.5rem;
   color: v.$sub-font-color;
   margin: 0.5rem 0;
-  padding: 0.25rem 0;
+  padding: 0.25em 0;
   border-block: 1px solid v.$border-color;
 }
 
 .navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5px;
+  @include m.flex-wrap(0.3em);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -89,7 +82,7 @@
 
     a {
       display: inline-block;
-      padding: 0.5rem;
+      padding: 0.5em;
       color: inherit;
     }
 
@@ -107,7 +100,7 @@
 
   &--social {
     margin-top: 0.5rem;
-    gap: 15px;
+    gap: 1.2em;
   }
 }
 
@@ -115,26 +108,21 @@
 // Home Page Nav
 // -------------------------------------
 .home-nav {
+  @include m.flex-between;
   position: relative;
   top: -30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.search-icon a {
-  display: flex;
-  align-items: center;
+.search-icon {
+  line-height: 1;
 }
 
 .category ul {
-  display: flex;
-  align-items: center;
+  @include m.flex-wrap(0.4em);
   padding: 0;
   margin: 0;
-  gap: 5px;
   list-style: none;
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 
 // -------------------------------------
@@ -153,7 +141,7 @@
 
   &__title {
     margin: 0.3rem 0;
-    font-size: 1.4rem;
+    font-size: 1.4em;
     line-height: 1.3;
     color: v.$title-color;
 
@@ -168,10 +156,9 @@
   }
 
   &__meta {
-    display: flex;
-    gap: 0.5rem;
+    @include m.flex-wrap(0.5em);
     color: v.$meta-font-color;
-    font-size: 0.85rem;
+    font-size: 0.85em;
   }
 
   &__divider {
@@ -195,7 +182,7 @@
 .post-meta {
   margin-bottom: 1.8rem;
   color: v.$meta-font-color;
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 .post {
@@ -223,8 +210,8 @@
 
       &::before {
         content: "•••";
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
+        font-size: 1.2em;
+        letter-spacing: 0.5em;
         margin: 0.5rem 0;
         color: v.$sub-link-color;
       }
@@ -244,7 +231,7 @@
     }
 
     h3 {
-      padding-bottom: 0.4rem;
+      padding-bottom: 0.4em;
       margin-top: 1.5rem;
       border-bottom: 1px solid v.$border-color;
     }
@@ -259,16 +246,14 @@
 // Prev & Next Post
 // -------------------------------------
 .pager {
-  padding-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  @include m.flex-wrap(1em);
+  padding-top: 1em;
   border-top: 1px solid v.$border-color;
 
   a {
     display: block;
     width: 100%;
-    padding: 0.6rem 0;
+    padding: 0.6em 0;
     color: v.$meta-font-color;
     
     &:hover > span{
@@ -297,7 +282,7 @@
   display: block;
   margin-bottom: 1.8rem;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.9em;
 
   .paginate-btn {
     color: v.$sub-font-color;
@@ -327,12 +312,12 @@
 .footer {
   display: block;
   margin-top: 1rem;
-  padding-bottom: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.75em;
   color: v.$sub-font-color;
 
   &__info {
     text-align: center;
+    padding-top: 1em;
     
     .copyright, 
     #runtime {

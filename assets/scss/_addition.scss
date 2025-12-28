@@ -1,4 +1,5 @@
 @use "variable" as v;
+@use "mixin" as m;
 
 // -------------------------------------
 // Theme Switch Button
@@ -81,16 +82,14 @@
   }
 
   a {
+    @include m.flex-center;
     position: fixed;
-    bottom: 30px;
-    right: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid v.$border-color;
-    border-radius: 50%;
     height: 36px;
     width: 36px;
+    bottom: 30px;
+    right: 20px;
+    border-radius: 50%;
+    border: 1px solid v.$border-color;
     background-color: v.$top-btn-bg-color;
   }
 }
@@ -110,7 +109,7 @@
 // -------------------------------------
 .post_count {
   color: v.$sub-font-color;
-  font-size: 0.85rem;
+  font-size: 0.85em;
 }
 
 .post_num {
@@ -127,11 +126,9 @@
 
 .archive-years, 
 .taxonomy-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  @include m.flex-wrap(0.5em 1em);
   justify-content: flex-start;
-  padding-left: 0.5rem;
+  padding-left: 0.5em;
   list-style: none;
 
   a {
@@ -192,18 +189,14 @@
 // Bookshelf List
 // -------------------------------------
 .book-list {
-  display: flex;
-  flex-wrap: wrap;
+  @include m.flex-wrap(0.25em 0);
   justify-content: space-between;
-  gap: 0.25rem 0;
-  padding: 0 0.25rem;
+  padding: 0 0.25em;
   margin: 0 auto;
   list-style: none;
 
   li {
     width: 90px;
-    display: flex;
-    justify-content: center;
 
     img {
       width: 70px;
@@ -267,7 +260,7 @@
 
 .dsqjs-footer {
   text-align: right;
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 
 // -------------------------------------
@@ -317,9 +310,7 @@ sup a {
   margin-top: 2.5rem;
 
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4em 0.8em;
+    @include m.flex-wrap(0.4em 0.8em);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -347,7 +338,7 @@ sup a {
   max-width: 210px;
   background: v.$toc-bg-color;
   border-radius: 3px;
-  padding: 5px;
+  padding: 0.3em;
   z-index: 100;
   transition: opacity 0.25s ease;
 
@@ -359,7 +350,7 @@ sup a {
   &::before {
     display: block;
     content: "ToC";
-    margin: 5px;
+    margin: 0.3rem;
     font-size: 1.1em;
   }
 
@@ -383,12 +374,6 @@ sup a {
     &.active {
       color: v.$hover-color;
     }
-
-    &:focus-visible {
-      outline: 1px solid currentColor;
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
   }
 
   ul ul {
@@ -404,7 +389,7 @@ details {
     font-family: v.$quote-font;
     color: v.$sub-font-color;
     padding: 1em;
-    border-radius: 5px;
+    border-radius: 6px;
     background: v.$quote-bg-color;
   }
 }
@@ -413,7 +398,7 @@ summary {
   display: inline-flex;
   align-items: center;
   gap: 0.2em;
-  margin: 0.3em 0;
+  margin: 0.3rem 0;
   cursor: pointer;
   color: v.$sub-link-color;
   border-bottom: 1px solid currentColor;
@@ -445,7 +430,7 @@ table {
 
 thead th {
   background: v.$quote-bg-color;
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
 }
 
