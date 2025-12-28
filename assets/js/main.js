@@ -4,6 +4,12 @@ const KEY = "theme";
 
 function applyTheme(t) {
   document.documentElement.setAttribute("data-theme", t);
+
+  window.dispatchEvent(
+    new CustomEvent("themechange", {
+      detail: { theme: t }
+    })
+  );
 }
 
 function safeSave(t) {

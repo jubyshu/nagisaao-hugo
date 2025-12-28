@@ -11,4 +11,6 @@ permalink: /guestbook/
 桜の花びら散るときに  
 届かぬ想いがまた一つ  
 
+---
+
 {{< disqus >}}

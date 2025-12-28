@@ -2,7 +2,11 @@
   <div id="disqus_thread"></div>
   <script src="https://{{ .Site.Params.cdn }}/npm/disqusjs@1.3/dist/disqus.js"></script>
   <script>
+    window.disqusLoaded = false;
+
     function loadDisqus() {
+      if (window.disqusLoaded) return;
+      
       const dsqjs = new DisqusJS({
         shortname: "{{ .Site.Params.disqus.shortname }}",
         siteName: "{{ .Site.Params.disqus.sitename }}",
@@ -13,7 +17,22 @@
         adminLabel: "{{ .Site.Params.disqus.mod }}",
         nocomment: "{{ .Site.Params.disqus.nocomment }}"
       });
+
+      window.disqusLoaded = true;
     }
+
+    window.addEventListener("themechange", (e) => {
+      if (!window.disqusLoaded) return;
+
+      const el = document.getElementById("disqus_thread");
+      if (el) el.innerHTML = "";
+
+      window.disqusLoaded = false;
+      requestAnimationFrame(() => {
+        loadDisqus();
+        document.getElementById("dsqjs")?.remove();
+      });      
+    });
 
     let runningOnBrowser = typeof window !== "undefined";
     let isBot = runningOnBrowser && !("onscroll" in window)
