@@ -27,4 +27,4 @@ slug: a-record-of-my-concluded-voluntary-blood-donation-experiences
 
 不过我也并未完全堵死无偿献血的路，有朝一日还愿重新伸出自己的手臂。
 
-总结我的献血经历，全血1次300ml，成分血4次8治疗量，不辉煌也不算丑陋吧。
+总结我的献血经历，全血1次300ml，成分血4次8治疗量，不辉煌也不算黯然吧。
