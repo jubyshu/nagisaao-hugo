@@ -9,7 +9,7 @@ copyright = "© Juby"
 [params]
 author = "Juby"
 birthday = "2015/01/03 23:15:15"
-description = "我欲种菜 亦植蔷薇"
+description = "欲种嘉蔬 亦植蔷薇"
 keywords = ["渚碧博客", "Juby Blog", "读书·生活·运动", "Nagisa"]
 cdn = "fastly.jsdelivr.net"
 card = "https://bing.ee123.net/img/"
