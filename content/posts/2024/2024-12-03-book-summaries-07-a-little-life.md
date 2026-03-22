@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 读书小结七·渺小一生
+title: 读书小结七：渺小一生
 date: 2024-12-03 23:11:07+08:00
 categories:
 - review
