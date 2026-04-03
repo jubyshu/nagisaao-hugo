@@ -14,7 +14,7 @@
 
     <ol class="read-book-list">
       {{- range $booksOfYear }}
-      <li>{{ .title }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}</li>
+      <li>{{ .title }},{{ .nation | default "" }},{{ .author }},{{ .translator }},{{ .publisher }},{{ .pubyear }}</li>
       {{- end }}
     </ol>
     <hr>
