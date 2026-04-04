@@ -6,7 +6,6 @@ categories:
 - review
 tags:
 - 读书
-- 虚构
 slug: tan-sitong
 ---
 

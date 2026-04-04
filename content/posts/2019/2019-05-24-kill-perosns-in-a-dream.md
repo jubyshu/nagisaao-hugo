@@ -6,7 +6,6 @@ categories:
 - essay
 tags:
 - 虚构
-- 生活
 slug: kill-perosns-in-a-dream
 ---
 

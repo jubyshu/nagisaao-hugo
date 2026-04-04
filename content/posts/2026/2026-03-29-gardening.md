@@ -6,6 +6,7 @@ categories:
 - essay
 tags: 
 - 生活
+- 风景
 slug: gardening 
 ---
 

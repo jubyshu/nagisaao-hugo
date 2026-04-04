@@ -5,7 +5,7 @@ date: 2022-12-04 14:52:52+08:00
 categories:
 - story
 tags:
-- 杂谈
+- 虚构
 slug: the-king-and-the-flea
 ---
 
