@@ -5,7 +5,6 @@ date: 2025-12-07 20:18:15+08:00
 categories:
 - essay
 tags:
-- 韩语
 - 工具
 slug: learning-korean-via-duolingo
 ---
